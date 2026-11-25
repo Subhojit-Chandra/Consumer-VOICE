@@ -1,1 +1,2119 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consumer VOICE India — The Public Interest Evidence Ledger (Est. 1983)</title>
 
+  <!-- Google Fonts: Fraunces (Editorial Display Serif), Plus Jakarta Sans (Civic UI), JetBrains Mono (Lab Batch & Statutory Codes), Noto Sans Devanagari (Hindi) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800;9..144,900&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            archival: '#F7F4EE',
+            paper: '#FFFFFF',
+            parchment: '#EFEAE0',
+            ink: {
+              DEFAULT: '#14181F',
+              muted: '#4A515E',
+              subtle: '#6E7582'
+            },
+            crimson: {
+              DEFAULT: '#A62626',
+              dark: '#851D1D',
+              soft: '#F9ECEC'
+            },
+            labgreen: {
+              DEFAULT: '#1B5E4B',
+              dark: '#134436',
+              soft: '#E7F2EE'
+            },
+            brass: {
+              DEFAULT: '#9A6B21',
+              soft: '#F8F1E3'
+            },
+            hairline: '#D8D1C5'
+          },
+          fontFamily: {
+            serif: ['"Fraunces"', '"Noto Sans Devanagari"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #F7F4EE;
+      color: #14181F;
+      font-feature-settings: "cv02", "cv03", "cv04";
+      overflow-x: hidden;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+    /* Editorial Broadsheet Rules */
+    .double-rule-top {
+      border-top: 3px double #14181F;
+    }
+    .double-rule-bottom {
+      border-bottom: 3px double #14181F;
+    }
+    /* Tactile Print Magazine Card */
+    .magazine-folio {
+      background: linear-gradient(160deg, #1E242B 0%, #14181F 65%, #2B1717 100%);
+      box-shadow: 10px 14px 28px rgba(20, 24, 31, 0.18), 2px 3px 6px rgba(20, 24, 31, 0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .magazine-folio:hover {
+      transform: translateY(-3px);
+      box-shadow: 14px 20px 36px rgba(20, 24, 31, 0.24), 3px 5px 10px rgba(20, 24, 31, 0.14);
+    }
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F7F4EE;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C7BEB0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-crimson/15 selection:text-ink">
+
+  <!-- ===================================================================== -->
+  <!-- 1. LIVE PUBLIC RECORD & STATUTORY CREDENTIALS STRIP                   -->
+  <!-- ===================================================================== -->
+  <div class="bg-ink text-archival border-b border-ink text-[11px]">
+    <div class="max-w-[1320px] mx-auto px-4 sm:px-6 py-2 flex flex-col lg:flex-row items-center justify-between gap-2">
+      
+      <!-- Institutional Record -->
+      <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-1 font-mono tracking-tight">
+        <span class="text-amber-300 font-semibold" data-i18n="strip_est">EST. 1983 • NEW DELHI</span>
+        <span class="text-white/30">|</span>
+        <span data-i18n="strip_vco">RECOGNIZED VCO (DEPT. OF CONSUMER AFFAIRS, GOVT. OF INDIA)</span>
+        <span class="hidden sm:inline text-white/30">|</span>
+        <span class="hidden sm:inline text-emerald-300 font-semibold" data-i18n="strip_charter">ZERO CORPORATE ADVERTISING CHARTER</span>
+      </div>
+
+      <!-- Bilingual Toggle + Quick Filing Shortcut -->
+      <div class="flex items-center gap-3 shrink-0">
+        <div class="inline-flex items-center border border-white/25 rounded-md overflow-hidden" role="group" aria-label="Language Switcher">
+          <button
+            type="button"
+            id="btn-lang-en"
+            onclick="setLanguage('en')"
+            class="px-2.5 py-0.5 text-[11px] font-bold bg-archival text-ink transition"
+          >
+            English
+          </button>
+          <button
+            type="button"
+            id="btn-lang-hi"
+            onclick="setLanguage('hi')"
+            class="px-2.5 py-0.5 text-[11px] font-medium text-archival/85 hover:text-white transition"
+          >
+            हिंदी
+          </button>
+        </div>
+
+        <a href="#legal-workbench" class="font-mono text-[11px] underline decoration-amber-400 underline-offset-4 text-amber-200 hover:text-white transition">
+          <span data-i18n="strip_helpline">NCH 1915 &amp; VCO Notice Desk →</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 2. EDITORIAL INSTITUTIONAL MASTHEAD & CLEAN CIVIC NAVIGATION          -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-archival/95 backdrop-blur-md border-b border-hairline">
+    <div class="max-w-[1320px] mx-auto px-4 sm:px-6">
+      
+      <!-- Masthead Top Row -->
+      <div class="py-3.5 sm:py-4 flex items-center justify-between gap-4 border-b border-hairline">
+        
+        <!-- Left: Founding Heritage Note (Desktop) -->
+        <div class="hidden xl:block w-56 text-[11px] text-ink-muted leading-snug">
+          <div class="font-mono font-semibold text-ink uppercase">Vol. XLIV • Public Record</div>
+          <div>Voluntary Organisation in Interest of Consumer Education</div>
+        </div>
+
+        <!-- Center/Left: Authentic Consumer VOICE Emblem + Masthead Title -->
+        <a href="#front-page" class="flex items-center gap-3.5 group focus:outline-none">
+          <!-- Authentic Consumer VOICE Speech-Checkmark & Broadcast Emblem -->
+          <svg class="w-12 h-12 sm:w-14 sm:h-14 shrink-0" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="2" width="56" height="56" rx="12" fill="#14181F"/>
+            <!-- Crimson Speech Arc -->
+            <path d="M39 15.5C36.2 13.5 32.8 12.4 29.2 12.4C19.5 12.4 11.6 20.3 11.6 30C11.6 34.1 13 37.8 15.4 40.8L12.5 47.2L19.4 44.6C22.3 46.5 25.6 47.6 29.2 47.6C34.5 47.6 39.2 45.3 42.4 41.7" stroke="#A62626" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Crisp White V-Checkmark -->
+            <path d="M20.6 28L27.5 36.4L37.2 21.5" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Broadcast Waves -->
+            <path d="M41.2 22.6C43.5 24.8 44.9 27.9 44.9 31.1C44.9 34.3 43.5 37.2 41.3 39.3" stroke="#D9A043" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M45.8 18.7C49.2 21.9 51.1 26.3 51.1 31.1C51.1 35.9 49.2 40.2 45.9 43.3" stroke="#A62626" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+
+          <div>
+            <div class="flex items-baseline gap-2">
+              <span class="font-serif text-2xl sm:text-3xl lg:text-[34px] font-black tracking-tight text-ink leading-none">
+                CONSUMER VOICE
+              </span>
+              <span class="hidden sm:inline-block font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-crimson text-white uppercase tracking-wider">
+                INDIA
+              </span>
+            </div>
+            <p data-i18n="masthead_tagline" class="text-xs sm:text-[13px] font-medium text-ink-muted mt-1">
+              Informing Choices. Enforcing Accountability. Since 1983.
+            </p>
+          </div>
+        </a>
+
+        <!-- Right: Primary Institutional Actions -->
+        <div class="flex items-center gap-2.5 shrink-0">
+          <button
+            type="button"
+            onclick="openFlipbookModal(0)"
+            class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg border border-ink text-ink hover:bg-ink hover:text-white text-xs font-bold transition"
+          >
+            <span data-i18n="btn_read_issue">Read Nov–Dec Issue</span>
+          </button>
+
+          <button
+            type="button"
+            onclick="openSupportModal()"
+            class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-lg bg-crimson hover:bg-crimson-dark text-white text-xs font-bold transition"
+          >
+            <span data-i18n="btn_support">Support Independent Testing</span>
+          </button>
+
+          <!-- Mobile Navigation Toggle -->
+          <button
+            type="button"
+            onclick="toggleMobileNav()"
+            class="lg:hidden p-2 rounded-lg border border-hairline bg-paper text-ink hover:bg-parchment transition"
+            aria-label="Toggle Navigation Menu"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Links Row -->
+      <nav class="hidden lg:flex items-center justify-between py-2.5 text-[13px] font-bold text-ink" aria-label="Primary Sections">
+        <div class="flex items-center gap-7">
+          <a href="#lab-ledger" data-i18n="nav_ledger" class="hover:text-crimson transition">The Lab Ledger</a>
+          <a href="#voice-magazine" data-i18n="nav_magazine" class="hover:text-crimson transition">VOICE Magazine</a>
+          <a href="#legal-workbench" data-i18n="nav_legal" class="hover:text-crimson transition">Legal &amp; Redressal</a>
+          <a href="#public-campaigns" data-i18n="nav_campaigns" class="hover:text-crimson transition">Food Safety &amp; Campaigns</a>
+          <a href="#integrity-charter" data-i18n="nav_charter" class="hover:text-crimson transition">Zero-Ad Charter</a>
+          <a href="#institutional-heritage" data-i18n="nav_heritage" class="hover:text-crimson transition">1983–2026 Archive</a>
+        </div>
+        <div class="font-mono text-[11px] text-labgreen font-semibold">
+          NABL ISO/IEC 17025 • CONSUMER INTERNATIONAL MEMBER
+        </div>
+      </nav>
+
+      <!-- Mobile Drawer -->
+      <div id="mobile-nav-drawer" class="hidden lg:hidden py-3 border-t border-hairline space-y-1.5 text-sm font-bold">
+        <a href="#lab-ledger" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg hover:bg-parchment">1. The Lab Ledger (NABL Comparative Tests)</a>
+        <a href="#voice-magazine" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg hover:bg-parchment">2. VOICE Magazine, Field Notes &amp; Broadcasts</a>
+        <a href="#legal-workbench" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg hover:bg-parchment">3. Legal &amp; Pre-Litigation Workbench</a>
+        <a href="#public-campaigns" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg hover:bg-parchment">4. Food Safety &amp; Public Health Campaigns</a>
+        <a href="#integrity-charter" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg hover:bg-parchment">5. Institutional Integrity Charter (1983–2026)</a>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- =================================================================== -->
+    <!-- 3. ABOVE-THE-FOLD BROADSHEET HERO ("THE EVIDENCE FRONT PAGE")       -->
+    <!-- =================================================================== -->
+    <section id="front-page" class="py-7 sm:py-9 border-b border-hairline">
+      <div class="max-w-[1320px] mx-auto px-4 sm:px-6">
+        
+        <!-- Broadsheet Dateline & Quick Search -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-6 border-b border-hairline text-xs">
+          <div class="flex flex-wrap items-center gap-2 font-mono text-ink-muted">
+            <span class="px-2 py-0.5 rounded bg-crimson text-white font-bold uppercase text-[10px]">FRONT PAGE DISPATCH</span>
+            <span>NEW DELHI • NOVEMBER 2026</span>
+            <span>•</span>
+            <span>43 YEARS OF EMPIRICAL CONSUMER ADVOCACY</span>
+          </div>
+          <div class="relative w-full sm:w-72">
+            <input
+              type="text"
+              id="global-ledger-search"
+              oninput="handleGlobalSearch(this.value)"
+              placeholder="Filter lab tests & dossiers..."
+              aria-label="Filter lab tests and dossiers"
+              class="w-full pl-3 pr-8 py-1.5 rounded-lg bg-paper border border-hairline text-xs text-ink placeholder-ink-subtle focus:outline-none focus:border-ink"
+            />
+            <span class="absolute right-2.5 top-1.5 text-ink-subtle text-xs">⌕</span>
+          </div>
+        </div>
+
+        <!-- Asymmetric 12-Column Newspaper / Journal Grid (5 + 4 + 3) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+          
+          <!-- LEFT 5 COLUMNS: LEAD INVESTIGATION / COVER STORY -->
+          <article class="lg:col-span-5 lg:pr-6 lg:border-r lg:border-hairline space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-crimson">
+                44th Year Institutional Dispatch
+              </span>
+              <span class="text-hairline">•</span>
+              <span class="font-mono text-[11px] text-ink-muted">NABL ISO/IEC 17025</span>
+            </div>
+
+            <h1 data-i18n="lead_headline" class="font-serif text-3xl sm:text-4xl font-extrabold text-ink leading-[1.12] tracking-tight">
+              44th Year Milestone: Relaunching Independent NABL Comparative Product Testing &amp; Front-of-Pack Food Label Audits Across India
+            </h1>
+
+            <p data-i18n="lead_deck" class="text-sm sm:text-[15px] text-ink-muted leading-relaxed">
+              Purchased anonymously off retail shelves and evaluated in NABL-accredited laboratories, Consumer VOICE’s latest comparative dossiers audit edible oils, packaged drinking water, energy-efficient appliances, and front-of-pack nutrition claims—arming citizens with verifiable facts before they buy.
+            </p>
+
+            <!-- Archival Public-Interest Quote Callout -->
+            <blockquote class="p-4 rounded-xl bg-paper border border-hairline border-l-4 border-l-crimson space-y-1.5">
+              <p class="font-serif italic text-base font-semibold text-ink">
+                “Independent laboratory evidence and transparent labelling are the bedrock of every Indian citizen’s Right to Safety and Right to Information.”
+              </p>
+              <footer class="font-mono text-[11px] text-ink-muted">
+                — Consumer VOICE Editorial &amp; Testing Desk • New Delhi (Est. 1983)
+              </footer>
+            </blockquote>
+
+            <!-- Key Institutional Metrics Strip -->
+            <div class="grid grid-cols-3 gap-2.5 pt-1">
+              <div class="p-3 rounded-lg bg-paper border border-hairline">
+                <div class="font-mono text-base font-extrabold text-ink tabular-nums">3,000+</div>
+                <div class="text-[11px] text-ink-muted mt-0.5">Products Lab Tested</div>
+              </div>
+              <div class="p-3 rounded-lg bg-paper border border-hairline">
+                <div class="font-mono text-base font-extrabold text-labgreen tabular-nums">100%</div>
+                <div class="text-[11px] text-ink-muted mt-0.5">Blind Retail Sampling</div>
+              </div>
+              <div class="p-3 rounded-lg bg-paper border border-hairline">
+                <div class="font-mono text-base font-extrabold text-crimson tabular-nums">Zero Ads</div>
+                <div class="text-[11px] text-ink-muted mt-0.5">Editorial Independence</div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <button
+                type="button"
+                onclick="openArticleModal('nabl-relaunch-lead')"
+                class="px-4 py-2.5 rounded-lg bg-ink hover:bg-crimson text-white text-xs font-bold transition"
+              >
+                Read Full Investigation →
+              </button>
+              <a
+                href="#lab-ledger"
+                class="px-4 py-2.5 rounded-lg bg-paper hover:bg-parchment border border-hairline text-ink text-xs font-bold transition"
+              >
+                Inspect NABL Lab Ledger
+              </a>
+            </div>
+          </article>
+
+          <!-- CENTER 4 COLUMNS: LATEST NABL LAB DOSSIERS & STATUTORY ALERTS -->
+          <div class="lg:col-span-4 lg:pr-6 lg:border-r lg:border-hairline space-y-5">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b-2 border-ink">
+                <h2 class="font-serif text-lg font-extrabold text-ink">Latest NABL Lab Dossiers</h2>
+                <a href="#lab-ledger" class="font-mono text-[11px] font-bold text-labgreen hover:underline">Full Ledger →</a>
+              </div>
+
+              <div class="divide-y divide-hairline mt-2">
+                <!-- Dossier 1 -->
+                <div class="py-3.5 space-y-1.5">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-mono text-[10.5px] font-semibold text-ink-muted">BATCH: CV-LAB-2026-MO15</span>
+                    <span class="font-mono text-[10.5px] font-bold px-2 py-0.5 rounded bg-labgreen-soft text-labgreen border border-labgreen/20">BEST BUY: 92/100</span>
+                  </div>
+                  <h3 class="font-serif text-base font-bold text-ink leading-snug">
+                    Edible Oils &amp; Trans-Fat Audit: 15 Mustard &amp; Blended Oils Tested (IS 546)
+                  </h3>
+                  <p class="text-xs text-ink-muted leading-relaxed">
+                    Fortune Kachi Ghani (92/100) and Dhara (89/100) recorded 0.0% trans-fat and zero argemone adulteration; loose retail samples failed rancidity checks.
+                  </p>
+                  <button type="button" onclick="openDossierModal('mustard-oil')" class="font-mono text-[11px] font-bold text-ink hover:text-crimson transition">
+                    Inspect NABL Dossier →
+                  </button>
+                </div>
+
+                <!-- Dossier 2 -->
+                <div class="py-3.5 space-y-1.5">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-mono text-[10.5px] font-semibold text-ink-muted">BATCH: CV-LAB-2026-DW12</span>
+                    <span class="font-mono text-[10.5px] font-bold px-2 py-0.5 rounded bg-crimson-soft text-crimson border border-crimson/20">3/12 FLAGGED</span>
+                  </div>
+                  <h3 class="font-serif text-base font-bold text-ink leading-snug">
+                    Packaged Drinking Water &amp; Heavy Metals Audit (IS 14543)
+                  </h3>
+                  <p class="text-xs text-ink-muted leading-relaxed">
+                    Bisleri (93/100) and Kinley (90/100) met all microbiological, TDS, and trace heavy-metal limits; 3 regional brands failed bromate &amp; seal integrity checks.
+                  </p>
+                  <button type="button" onclick="openDossierModal('drinking-water')" class="font-mono text-[11px] font-bold text-ink hover:text-crimson transition">
+                    Inspect NABL Dossier →
+                  </button>
+                </div>
+
+                <!-- Dossier 3 -->
+                <div class="py-3.5 space-y-1.5">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-mono text-[10.5px] font-semibold text-ink-muted">BATCH: CV-LAB-2026-AP10</span>
+                    <span class="font-mono text-[10.5px] font-bold px-2 py-0.5 rounded bg-labgreen-soft text-labgreen border border-labgreen/20">BEE 5-STAR &amp; HEPA</span>
+                  </div>
+                  <h3 class="font-serif text-base font-bold text-ink leading-snug">
+                    Energy-Efficient Home Appliances &amp; HEPA H13 Air Purifiers Tested
+                  </h3>
+                  <p class="text-xs text-ink-muted leading-relaxed">
+                    Philips Smart H13 (93/100) and Coway AirMega 150 (90/100) delivered 99.6% PM2.5 chamber clearance with lowest annual power &amp; filter cost.
+                  </p>
+                  <button type="button" onclick="openDossierModal('home-appliances')" class="font-mono text-[11px] font-bold text-ink hover:text-crimson transition">
+                    Inspect NABL Dossier →
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Statutory & FSSAI / BIS Enforcement Watch Box -->
+            <div class="p-4 rounded-xl bg-brass-soft border border-brass/30 space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-[10.5px] font-extrabold uppercase tracking-wider text-brass">Statutory &amp; FSSAI / BIS Enforcement Watch</span>
+                <span class="font-mono text-[10px] text-ink-muted">2026</span>
+              </div>
+              <ul class="space-y-2 text-xs text-ink leading-snug">
+                <li class="flex items-start gap-2">
+                  <span class="font-mono font-bold text-crimson">01.</span>
+                  <span><strong>FSSAI Front-of-Pack &amp; Trans-Fat Rules:</strong> Industrial trans-fats capped below 2%; packaged foods must clearly declare high sugar, salt, and saturated fat levels.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="font-mono font-bold text-crimson">02.</span>
+                  <span><strong>BIS Mandatory ISI &amp; E-Commerce Rule 4(5):</strong> Mandatory ISI certification for pressure cookers, helmets &amp; appliances; 48-hour docket mandate for online disputes.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- RIGHT 3 COLUMNS: BI-MONTHLY MAGAZINE CARD + PRE-LITIGATION DESK -->
+          <aside class="lg:col-span-3 space-y-5">
+            
+            <!-- Bi-Monthly Magazine Interactive Issue Card -->
+            <div class="bg-paper rounded-xl border border-hairline p-4 space-y-3.5">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-crimson">Bi-Monthly Journal</span>
+                <span class="font-mono text-[10px] text-ink-muted">No Ads • Est. 1983</span>
+              </div>
+
+              <!-- Tactile Magazine Cover Preview -->
+              <div
+                onclick="openFlipbookModal(0)"
+                role="button"
+                tabindex="0"
+                onkeydown="if(event.key==='Enter'||event.key===' ')openFlipbookModal(0)"
+                aria-label="Open VOICE Magazine Interactive Flipbook"
+                class="magazine-folio cursor-pointer rounded-lg p-4 text-white border border-white/10 select-none"
+              >
+                <div class="flex items-baseline justify-between border-b border-white/15 pb-2">
+                  <span class="font-serif text-3xl font-black tracking-tight">VOICE</span>
+                  <span class="font-mono text-[9.5px] text-amber-300 uppercase">NOV–DEC 2026</span>
+                </div>
+
+                <div class="pt-3 space-y-1.5">
+                  <span class="inline-block font-mono text-[9px] font-bold px-1.5 py-0.5 rounded bg-crimson text-white uppercase">Cover Feature</span>
+                  <h3 class="font-serif text-lg font-extrabold leading-tight">
+                    Trapped in the Chatbot Loop: What Happened to Human Support?
+                  </h3>
+                  <p class="text-[11px] text-slate-300 leading-snug">
+                    Plus: 15 Mustard Oils &amp; 12 Water Brands Tested • Front-of-Pack Label Guide
+                  </p>
+                </div>
+
+                <div class="mt-4 pt-2.5 border-t border-white/15 flex items-center justify-between font-mono text-[10px] text-amber-200">
+                  <span>VOL. 44 • ISSUE 6</span>
+                  <span class="font-bold underline">FLIP EDITION ↗</span>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <button
+                  type="button"
+                  onclick="openFlipbookModal(0)"
+                  class="w-full py-2.5 px-3 rounded-lg bg-crimson hover:bg-crimson-dark text-white text-xs font-bold transition"
+                >
+                  Open Interactive Flipbook
+                </button>
+                <button
+                  type="button"
+                  onclick="shareMagazineWhatsApp()"
+                  class="w-full py-2 px-3 rounded-lg bg-labgreen-soft hover:bg-labgreen text-labgreen hover:text-white border border-labgreen/25 text-xs font-bold transition"
+                >
+                  Share Flipbook on WhatsApp
+                </button>
+              </div>
+            </div>
+
+            <!-- Direct Pre-Litigation Help Card -->
+            <div class="bg-paper rounded-xl border border-hairline p-4 space-y-3">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-labgreen"></span>
+                <span class="font-mono text-[10.5px] font-bold uppercase tracking-wider text-labgreen">Pre-Litigation Desk</span>
+              </div>
+              <h3 class="font-serif text-base font-extrabold text-ink leading-snug">
+                Need Pre-Litigation Help With a Refund or Chatbot Loop?
+              </h3>
+              <p class="text-xs text-ink-muted leading-relaxed">
+                As a recognized VCO under <strong>Sec. 2(5) CPA 2019</strong>, Consumer VOICE helps citizens draft statutory notices before approaching consumer commissions.
+              </p>
+              <div class="pt-1 space-y-2">
+                <a
+                  href="#legal-workbench"
+                  class="block text-center w-full py-2 px-3 rounded-lg bg-ink hover:bg-crimson text-white text-xs font-bold transition"
+                >
+                  Draft Statutory Notice →
+                </a>
+                <div class="font-mono text-[10.5px] text-center text-ink-muted">
+                  National Helpline: <strong class="text-ink">1915</strong> • <strong class="text-ink">info@consumer-voice.org</strong>
+                </div>
+              </div>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 4. SECTION I: THE COMPARATIVE LAB LEDGER & CITIZEN LAB BALLOT       -->
+    <!-- =================================================================== -->
+    <section id="lab-ledger" class="py-14 sm:py-18 border-b border-hairline">
+      <div class="max-w-[1320px] mx-auto px-4 sm:px-6 space-y-8">
+        
+        <!-- Section Masthead -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-4 border-b-2 border-ink">
+          <div>
+            <span class="font-mono text-xs font-bold uppercase tracking-wider text-labgreen">Section I • NABL ISO/IEC 17025 Comparative Testing</span>
+            <h2 data-i18n="sec_ledger_title" class="font-serif text-2xl sm:text-3xl font-extrabold text-ink mt-1">
+              The Comparative Lab Ledger
+            </h2>
+            <p class="text-xs sm:text-sm text-ink-muted mt-1 max-w-2xl">
+              Anonymous retail samples purchased off the shelf and tested in NABL-accredited laboratories. Select up to 3 rows to compare side-by-side or inspect complete lab dossiers.
+            </p>
+          </div>
+
+          <!-- Category Filter Buttons -->
+          <div class="flex flex-wrap items-center gap-1.5" role="tablist" aria-label="Filter Lab Ledger Categories">
+            <button type="button" onclick="filterLabLedger('all')" data-ledger-cat="all" class="ledger-tab px-3 py-1.5 rounded-md text-xs font-bold bg-ink text-white transition">
+              All Tested Categories
+            </button>
+            <button type="button" onclick="filterLabLedger('food')" data-ledger-cat="food" class="ledger-tab px-3 py-1.5 rounded-md text-xs font-semibold bg-paper text-ink border border-hairline hover:border-ink transition">
+              Food &amp; Nutrition
+            </button>
+            <button type="button" onclick="filterLabLedger('appliances')" data-ledger-cat="appliances" class="ledger-tab px-3 py-1.5 rounded-md text-xs font-semibold bg-paper text-ink border border-hairline hover:border-ink transition">
+              Home Appliances
+            </button>
+            <button type="button" onclick="filterLabLedger('kitchen')" data-ledger-cat="kitchen" class="ledger-tab px-3 py-1.5 rounded-md text-xs font-semibold bg-paper text-ink border border-hairline hover:border-ink transition">
+              Kitchen &amp; Toiletries
+            </button>
+            <button type="button" onclick="filterLabLedger('banking')" data-ledger-cat="banking" class="ledger-tab px-3 py-1.5 rounded-md text-xs font-semibold bg-paper text-ink border border-hairline hover:border-ink transition">
+              Banking &amp; Insurance
+            </button>
+          </div>
+        </div>
+
+        <!-- Comparison Selection Bar -->
+        <div id="ledger-compare-bar" class="hidden p-3.5 rounded-xl bg-ink text-archival flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="flex items-center gap-2.5 text-xs">
+            <span id="ledger-compare-count" class="font-mono font-bold px-2 py-0.5 rounded bg-labgreen text-white tabular-nums">0 / 3</span>
+            <span id="ledger-compare-names" class="font-medium">Select up to 3 dossiers to compare side-by-side.</span>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button type="button" onclick="clearLedgerCompare()" class="px-3 py-1.5 rounded border border-white/25 text-xs font-semibold hover:bg-white/10 transition">
+              Clear
+            </button>
+            <button type="button" onclick="openLedgerCompareModal()" class="px-4 py-1.5 rounded bg-crimson hover:bg-crimson-dark text-white text-xs font-bold transition">
+              Compare Selected (up to 3) →
+            </button>
+          </div>
+        </div>
+
+        <!-- 12-Col Grid: 8 Cols Scientific Comparison Ledger + 4 Cols Citizen Lab Ballot -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+          
+          <!-- Left 8 Cols: Structured Scientific Comparison Table -->
+          <div class="lg:col-span-8 bg-paper rounded-xl border border-hairline overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse text-xs sm:text-[13px]">
+                <thead>
+                  <tr class="bg-parchment border-b border-hairline font-mono text-[11px] uppercase text-ink-muted">
+                    <th class="py-3 px-3.5 w-10">Cmp</th>
+                    <th class="py-3 px-3.5">Tested Category &amp; Batch</th>
+                    <th class="py-3 px-3.5">Key Lab Metric</th>
+                    <th class="py-3 px-3.5">Score / Verdict</th>
+                    <th class="py-3 px-3.5 text-right">Dossier</th>
+                  </tr>
+                </thead>
+                <tbody id="lab-ledger-tbody" class="divide-y divide-hairline">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Right 4 Cols: Citizen Lab Ballot -->
+          <aside class="lg:col-span-4 bg-paper rounded-xl border border-hairline p-5 space-y-4">
+            <div class="flex items-center justify-between border-b border-hairline pb-2.5">
+              <span class="font-mono text-[10.5px] font-bold uppercase tracking-wider text-crimson">Citizen Lab Ballot</span>
+              <span id="ballot-total-label" class="font-mono text-[11px] font-bold text-ink-muted tabular-nums">1,246 ballots</span>
+            </div>
+
+            <div>
+              <h3 class="font-serif text-lg font-extrabold text-ink leading-snug">
+                Which Everyday Product Should Our NABL Lab Test Next?
+              </h3>
+              <p class="text-xs text-ink-muted mt-1 leading-relaxed">
+                Our testing priorities are set by public interest, never corporate sponsors. Cast your ballot for the next anonymous retail sample batch:
+              </p>
+            </div>
+
+            <div id="citizen-ballot-options" class="space-y-2.5">
+              <!-- Populated via JS -->
+            </div>
+
+            <div id="citizen-ballot-note" class="p-3 rounded-lg bg-archival border border-hairline font-mono text-[11px] text-ink-muted">
+              Next anonymous retail sample procurement begins <strong>15 December 2026</strong>.
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 5. SECTION II: VOICE MAGAZINE, INVESTIGATIVE BLOGS & BROADCASTS     -->
+    <!-- =================================================================== -->
+    <section id="voice-magazine" class="py-14 sm:py-18 bg-paper border-b border-hairline">
+      <div class="max-w-[1320px] mx-auto px-4 sm:px-6 space-y-10">
+        
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b-2 border-ink">
+          <div>
+            <span class="font-mono text-xs font-bold uppercase tracking-wider text-crimson">Section II • Independent Public-Interest Journalism</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-extrabold text-ink mt-1">
+              VOICE Magazine, Field Notes &amp; Public Broadcasts
+            </h2>
+            <p class="text-xs sm:text-sm text-ink-muted mt-1">
+              100% advertisement-free investigative reporting, NABL buyer guides, and bilingual consumer education videos.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" onclick="openFlipbookModal(0)" class="px-4 py-2 rounded-lg bg-crimson hover:bg-crimson-dark text-white text-xs font-bold transition">
+              Launch Full Flipbook Reader
+            </button>
+            <button type="button" onclick="shareMagazineWhatsApp()" class="px-4 py-2 rounded-lg bg-archival hover:bg-parchment border border-hairline text-ink text-xs font-bold transition">
+              Copy WhatsApp Flipbook Link
+            </button>
+          </div>
+        </div>
+
+        <!-- 12-Col Layout: 7 Cols Filterable Field Notes & Blogs + 5 Cols Public Broadcasts Video Theatre -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Left 7 Cols: Filterable Field Notes & Investigative Blogs -->
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 class="font-serif text-xl font-extrabold text-ink">Field Notes &amp; Investigative Blogs</h3>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" onclick="filterBlogs('all')" data-blog-cat="all" class="blog-filter-btn px-2.5 py-1 rounded text-[11px] font-bold bg-ink text-white">All</button>
+                <button type="button" onclick="filterBlogs('food')" data-blog-cat="food" class="blog-filter-btn px-2.5 py-1 rounded text-[11px] font-semibold bg-archival text-ink border border-hairline">Food &amp; Nutrition</button>
+                <button type="button" onclick="filterBlogs('law')" data-blog-cat="law" class="blog-filter-btn px-2.5 py-1 rounded text-[11px] font-semibold bg-archival text-ink border border-hairline">Consumer Law</button>
+                <button type="button" onclick="filterBlogs('safety')" data-blog-cat="safety" class="blog-filter-btn px-2.5 py-1 rounded text-[11px] font-semibold bg-archival text-ink border border-hairline">Public Health &amp; Safety</button>
+              </div>
+            </div>
+
+            <div id="blogs-list-container" class="divide-y divide-hairline border-y border-hairline">
+              <!-- Populated via JS -->
+            </div>
+          </div>
+
+          <!-- Right 5 Cols: Consumer VOICE Public Broadcasts (Videos) -->
+          <div class="lg:col-span-5 space-y-4">
+            <h3 class="font-serif text-xl font-extrabold text-ink">Consumer VOICE Public Broadcasts</h3>
+
+            <div class="rounded-xl border border-hairline bg-archival overflow-hidden">
+              <!-- Video Stage -->
+              <div class="p-5 bg-ink text-archival space-y-3">
+                <div class="flex items-center justify-between font-mono text-[10.5px]">
+                  <span id="broadcast-tag" class="px-2 py-0.5 rounded bg-crimson text-white font-bold uppercase">Statutory Rights Guide</span>
+                  <span id="broadcast-time" class="text-amber-300">04:25 • EN / HI</span>
+                </div>
+
+                <h4 id="broadcast-title" class="font-serif text-lg font-extrabold leading-snug text-white">
+                  Trapped in the Chatbot Loop: How to Force Human Escalation Under Indian Law
+                </h4>
+
+                <p id="broadcast-desc" class="text-xs text-slate-300 leading-relaxed">
+                  A step-by-step walkthrough of Rule 4(5) of the Consumer Protection (E-Commerce) Rules, 2020 and National Consumer Helpline (1915) escalation.
+                </p>
+
+                <!-- Chapter Markers -->
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <button type="button" onclick="jumpVideoChapter(18, 'Chapter 1: Why Bots Deflect Claims')" class="font-mono text-[10px] px-2 py-1 rounded bg-white/10 hover:bg-white/20 text-white transition">00:30 Deflection</button>
+                  <button type="button" onclick="jumpVideoChapter(54, 'Chapter 2: Rule 4(5) 48-Hour Docket Mandate')" class="font-mono text-[10px] px-2 py-1 rounded bg-white/10 hover:bg-white/20 text-white transition">01:45 Rule 4(5)</button>
+                  <button type="button" onclick="jumpVideoChapter(86, 'Chapter 3: Filing on NCH 1915 & e-Daakhil')" class="font-mono text-[10px] px-2 py-1 rounded bg-white/10 hover:bg-white/20 text-white transition">03:10 NCH 1915</button>
+                </div>
+
+                <div class="flex items-center gap-2.5 pt-1">
+                  <button type="button" id="broadcast-play-btn" onclick="toggleBroadcastPlay()" class="px-3.5 py-1.5 rounded bg-crimson hover:bg-crimson-dark text-white text-xs font-bold transition">
+                    ▶ Play Briefing
+                  </button>
+                  <button type="button" onclick="toggleBroadcastTranscript()" class="px-3 py-1.5 rounded border border-white/25 hover:bg-white/10 text-white text-xs font-semibold transition">
+                    Bilingual Transcript
+                  </button>
+                </div>
+
+                <div class="w-full h-1.5 rounded bg-white/15 overflow-hidden">
+                  <div id="broadcast-progress" class="h-full bg-amber-400 transition-all duration-300" style="width: 22%;"></div>
+                </div>
+                <div id="broadcast-chapter-status" class="font-mono text-[10px] text-amber-200">Ready • Select a chapter or press Play Briefing</div>
+              </div>
+
+              <!-- Bilingual Transcript Drawer -->
+              <div id="broadcast-transcript-drawer" class="hidden p-4 bg-paper border-b border-hairline text-xs text-ink space-y-2 leading-relaxed">
+                <div><strong class="font-mono text-crimson">ENGLISH:</strong> <span id="transcript-en">Under Rule 4(5) of the Consumer Protection (E-Commerce) Rules, 2020, every e-commerce entity must publish a resident Grievance Officer's name and direct email, issue a complaint docket within 48 hours, and resolve disputes within 30 days.</span></div>
+                <div><strong class="font-mono text-labgreen">हिंदी:</strong> <span id="transcript-hi">उपभोक्ता संरक्षण (ई-कॉमर्स) नियम, 2020 के नियम 4(5) के तहत, प्रत्येक प्लेटफॉर्म को शिकायत अधिकारी का विवरण प्रकाशित करना, 48 घंटे में शिकायत संख्या देना और 30 दिनों के भीतर समाधान करना अनिवार्य है।</span></div>
+              </div>
+
+              <!-- Playlist Selector -->
+              <div id="broadcast-playlist" class="p-3.5 divide-y divide-hairline">
+                <!-- Populated via JS -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 6. SECTION III: PRE-LITIGATION LEGAL DESK & STATUTORY WORKBENCH     -->
+    <!-- =================================================================== -->
+    <section id="legal-workbench" class="py-14 sm:py-18 border-b border-hairline">
+      <div class="max-w-[1320px] mx-auto px-4 sm:px-6 space-y-8">
+        
+        <div class="pb-4 border-b-2 border-ink flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <span class="font-mono text-xs font-bold uppercase tracking-wider text-labgreen">Section III • Statutory Standing under Sec. 2(5) &amp; Sec. 35 CPA 2019</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-extrabold text-ink mt-1">
+              Pre-Litigation Legal Desk &amp; Statutory Notice Workbench
+            </h2>
+            <p class="text-xs sm:text-sm text-ink-muted mt-1 max-w-2xl">
+              Generate a formal statutory notice citing exact Indian consumer laws, then follow the 3-tier escalation ladder if the company fails to respond within 48 hours.
+            </p>
+          </div>
+          <div class="font-mono text-xs bg-paper px-3 py-2 rounded-lg border border-hairline text-ink">
+            VCO Advisory Desk: <strong>info@consumer-voice.org</strong>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Left 7 Cols: Interactive Statutory Notice Workbench -->
+          <div class="lg:col-span-7 bg-paper rounded-xl border border-hairline p-5 sm:p-6 space-y-4">
+            <h3 class="font-serif text-lg font-extrabold text-ink">1. Generate Formal Grievance Officer Notice</h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <div>
+                <label for="wb-grievance-type" class="block font-mono text-[11px] font-bold uppercase text-ink-muted mb-1">Grievance Category</label>
+                <select id="wb-grievance-type" onchange="renderWorkbenchNotice()" class="w-full px-3 py-2 rounded-lg bg-archival border border-hairline text-xs sm:text-sm font-medium text-ink focus:outline-none focus:border-ink">
+                  <option value="chatbot">Chatbot Loop Deflection / Support Blocked (Rule 4(5))</option>
+                  <option value="upi">Wrong UPI / Unauthorized Bank Debit (RBI Rules)</option>
+                  <option value="defective">Defective Product / Refund Refused (CPA 2019)</option>
+                  <option value="foodlabel">Misleading Food Label / Adulteration (FSSAI &amp; CPA)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="wb-company" class="block font-mono text-[11px] font-bold uppercase text-ink-muted mb-1">Platform / Brand Name</label>
+                <input id="wb-company" type="text" oninput="renderWorkbenchNotice()" value="QuickBasket Commerce India Pvt. Ltd." class="w-full px-3 py-2 rounded-lg bg-archival border border-hairline text-xs sm:text-sm text-ink focus:outline-none focus:border-ink" />
+              </div>
+
+              <div>
+                <label for="wb-order-id" class="block font-mono text-[11px] font-bold uppercase text-ink-muted mb-1">Order / Transaction Ref &amp; Date</label>
+                <input id="wb-order-id" type="text" oninput="renderWorkbenchNotice()" value="TXN-904821 (Dated 18 Nov 2026)" class="w-full px-3 py-2 rounded-lg bg-archival border border-hairline text-xs sm:text-sm text-ink focus:outline-none focus:border-ink" />
+              </div>
+
+              <div>
+                <label for="wb-amount" class="block font-mono text-[11px] font-bold uppercase text-ink-muted mb-1">Disputed Amount (₹)</label>
+                <input id="wb-amount" type="text" oninput="renderWorkbenchNotice()" value="₹4,250" class="w-full px-3 py-2 rounded-lg bg-archival border border-hairline text-xs sm:text-sm text-ink focus:outline-none focus:border-ink" />
+              </div>
+            </div>
+
+            <div>
+              <label for="wb-notice-output" class="block font-mono text-[11px] font-bold uppercase text-ink-muted mb-1">Statutory Notice Draft (Editable)</label>
+              <textarea id="wb-notice-output" rows="10" class="w-full p-3.5 rounded-lg bg-archival border border-hairline font-mono text-xs text-ink leading-relaxed focus:outline-none focus:border-ink"></textarea>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2.5">
+              <button type="button" onclick="copyWorkbenchNotice()" class="px-4 py-2.5 rounded-lg bg-ink hover:bg-crimson text-white text-xs font-bold transition">
+                Copy Legal Notice
+              </button>
+              <a id="wb-email-btn" href="mailto:grievance@example.com" class="px-4 py-2.5 rounded-lg bg-labgreen hover:bg-labgreen-dark text-white text-xs font-bold transition">
+                Send via Email Client
+              </a>
+              <button type="button" onclick="window.print()" class="px-4 py-2.5 rounded-lg bg-archival hover:bg-parchment border border-hairline text-ink text-xs font-bold transition">
+                Print / Save PDF
+              </button>
+            </div>
+          </div>
+
+          <!-- Right 5 Cols: 3-Tier Statutory Escalation Ladder -->
+          <div class="lg:col-span-5 space-y-4">
+            <h3 class="font-serif text-lg font-extrabold text-ink">2. The 3-Tier Statutory Escalation Ladder</h3>
+
+            <div class="space-y-3">
+              <!-- Tier 1 -->
+              <div class="p-4 rounded-xl bg-paper border border-hairline border-l-4 border-l-labgreen space-y-1.5">
+                <div class="flex items-center justify-between font-mono text-[10.5px]">
+                  <span class="font-bold text-labgreen uppercase">Tier 01 • Pre-Litigation Mediation</span>
+                  <span class="text-ink-muted">Days 1–15</span>
+                </div>
+                <h4 class="font-serif text-base font-extrabold text-ink">Consumer VOICE VCO Desk &amp; NCH (1915)</h4>
+                <p class="text-xs text-ink-muted leading-relaxed">
+                  Log your unanswered Grievance Officer notice with the <strong>National Consumer Helpline (dial 1915 or consumerhelpline.gov.in)</strong> and forward your evidence trail to <strong>Consumer VOICE (info@consumer-voice.org)</strong> for VCO institutional mediation.
+                </p>
+              </div>
+
+              <!-- Tier 2 -->
+              <div class="p-4 rounded-xl bg-paper border border-hairline border-l-4 border-l-brass space-y-1.5">
+                <div class="flex items-center justify-between font-mono text-[10.5px]">
+                  <span class="font-bold text-brass uppercase">Tier 02 • Sectoral &amp; Enforcement Regulators</span>
+                  <span class="text-ink-muted">Days 15–30</span>
+                </div>
+                <h4 class="font-serif text-base font-extrabold text-ink">RBI Ombudsman (CMS) / CCPA / FSSAI</h4>
+                <p class="text-xs text-ink-muted leading-relaxed">
+                  For unauthorized UPI debits or bank delays, file on <strong>cms.rbi.org.in</strong>. For systemic dark patterns or misleading ads, submit evidence for class-action enforcement under <strong>Sec. 18 CPA 2019 (CCPA)</strong>.
+                </p>
+              </div>
+
+              <!-- Tier 3 -->
+              <div class="p-4 rounded-xl bg-paper border border-hairline border-l-4 border-l-crimson space-y-1.5">
+                <div class="flex items-center justify-between font-mono text-[10.5px]">
+                  <span class="font-bold text-crimson uppercase">Tier 03 • Binding Judicial Redressal</span>
+                  <span class="text-ink-muted">Formal Adjudication</span>
+                </div>
+                <h4 class="font-serif text-base font-extrabold text-ink">e-Daakhil Consumer Disputes Commission</h4>
+                <p class="text-xs text-ink-muted leading-relaxed">
+                  File directly online at <strong>edaakhil.nic.in</strong> without needing a lawyer. Zero court filing fee applies for claims up to ₹5 lakh; claim refund, interest, and compensation for harassment.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 7. SECTION IV: FOOD SAFETY, PUBLIC HEALTH & POLICY CAMPAIGNS        -->
+    <!-- =================================================================== -->
+    <section id="public-campaigns" class="py-14 sm:py-18 bg-paper border-b border-hairline">
+      <div class="max-w-[1320px] mx-auto px-4 sm:px-6 space-y-8">
+        
+        <div class="pb-4 border-b-2 border-ink flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+          <div>
+            <span class="font-mono text-xs font-bold uppercase tracking-wider text-crimson">Section IV • National Advocacy &amp; Grassroots Mobilization</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-extrabold text-ink mt-1">
+              Food Safety, Public Health &amp; Grassroots Policy Campaigns
+            </h2>
+            <p class="text-xs sm:text-sm text-ink-muted mt-1 max-w-3xl">
+              Working alongside <strong>FSSAI</strong>, <strong>BIS</strong>, state Voluntary Consumer Organisations (VCOs), and <strong>Consumers International</strong>, Consumer VOICE translates laboratory findings into enforceable public-health standards and citizen awareness across India.
+            </p>
+          </div>
+          <div class="font-mono text-[11px] px-3 py-2 rounded-lg bg-archival border border-hairline text-ink shrink-0">
+            Statutory Forums: <strong>FSSAI • BIS • CCPA • MoRTH</strong>
+          </div>
+        </div>
+
+        <!-- Interactive 4-Campaign Dossier Selector -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+          
+          <!-- Left 5 Cols: Selector List of 4 Flagship Campaigns -->
+          <div class="lg:col-span-5 space-y-2" role="tablist" aria-label="Consumer VOICE Flagship Campaigns">
+            <div class="font-mono text-[11px] font-bold uppercase text-ink-muted pb-1">Select a Flagship Campaign to Inspect Policy Impact:</div>
+            <div id="campaign-selector-list" class="space-y-2">
+              <!-- Populated via JS -->
+            </div>
+          </div>
+
+          <!-- Right 7 Cols: Detailed Campaign & Policy Impact Card -->
+          <div class="lg:col-span-7 bg-archival rounded-xl border border-hairline p-6 space-y-5">
+            <div id="campaign-detail-panel">
+              <!-- Populated via JS -->
+            </div>
+
+            <!-- Statutory Standards & VCO Network Bar -->
+            <div class="pt-4 border-t border-hairline grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div class="p-3.5 rounded-lg bg-paper border border-hairline">
+                <div class="font-mono text-[10px] font-bold text-labgreen uppercase">BIS &amp; FSSAI Standards Representation</div>
+                <div class="font-bold text-ink mt-0.5">Technical Committee Advocacy</div>
+                <p class="text-ink-muted mt-1">Representing Indian consumers on BIS technical committees and FSSAI food-safety panels to tighten purity, labelling, and electrical safety norms.</p>
+              </div>
+              <div class="p-3.5 rounded-lg bg-paper border border-hairline">
+                <div class="font-mono text-[10px] font-bold text-crimson uppercase">Grassroots VCO Network</div>
+                <div class="font-bold text-ink mt-0.5">1,000+ District Workshops</div>
+                <p class="text-ink-muted mt-1">Partnering with state consumer organizations, schools, and resident welfare associations across 22+ states for bilingual consumer literacy.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 8. INSTITUTIONAL INTEGRITY CHARTER & HERITAGE TIMELINE (1983–2026)  -->
+    <!-- =================================================================== -->
+    <section id="integrity-charter" class="py-14 sm:py-18">
+      <div class="max-w-[1320px] mx-auto px-4 sm:px-6 space-y-12">
+        
+        <!-- Institutional Independence & Zero-Ad Charter -->
+        <div class="bg-paper rounded-xl border border-hairline p-6 sm:p-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-3">
+              <span class="font-mono text-xs font-bold uppercase tracking-wider text-crimson">The Consumer VOICE Covenant</span>
+              <h2 class="font-serif text-2xl sm:text-3xl font-extrabold text-ink leading-tight">
+                100% Zero-Corporate-Sponsorship &amp; Zero-Advertisement Charter
+              </h2>
+              <p class="text-xs sm:text-sm text-ink-muted leading-relaxed">
+                Born out of Delhi University in 1983, Consumer VOICE’s credibility rests on uncompromising independence. Our laboratory scores and editorial verdicts can never be influenced by corporate funds.
+              </p>
+            </div>
+
+            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="p-4 rounded-xl bg-archival border border-hairline space-y-1.5">
+                <div class="font-mono text-xs font-bold text-crimson">RULE 01</div>
+                <h3 class="font-serif text-base font-extrabold text-ink">Zero Commercial Ads</h3>
+                <p class="text-xs text-ink-muted leading-relaxed">
+                  Neither <em>VOICE Magazine</em> nor our website accepts brand advertisements, sponsored reviews, or affiliate commissions.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-archival border border-hairline space-y-1.5">
+                <div class="font-mono text-xs font-bold text-labgreen">RULE 02</div>
+                <h3 class="font-serif text-base font-extrabold text-ink">Anonymous Retail Sampling</h3>
+                <p class="text-xs text-ink-muted leading-relaxed">
+                  Every product tested in our NABL lab program is bought anonymously off retail shelves—never accepted from manufacturers.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-archival border border-hairline space-y-1.5">
+                <div class="font-mono text-xs font-bold text-brass">RULE 03</div>
+                <h3 class="font-serif text-base font-extrabold text-ink">Public-Interest Funding</h3>
+                <p class="text-xs text-ink-muted leading-relaxed">
+                  Funded strictly by citizen subscriptions, 80G donations, and audited public-interest grants (Consumer Welfare Fund, Consumers International).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Heritage Timeline (1983–2026) -->
+        <div id="institutional-heritage" class="space-y-5">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+            <div>
+              <span class="font-mono text-xs font-bold uppercase tracking-wider text-ink-muted">43 Years of Institutional Evolution</span>
+              <h3 class="font-serif text-2xl font-extrabold text-ink mt-0.5">Institutional Heritage Timeline (1983–2026)</h3>
+            </div>
+            <span class="font-mono text-xs text-ink-muted">Click any milestone year to inspect historical record</span>
+          </div>
+
+          <!-- Interactive Year Selector Strip -->
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5" id="heritage-year-buttons">
+            <!-- Populated via JS -->
+          </div>
+
+          <!-- Milestone Detail Box -->
+          <div id="heritage-detail-box" class="p-6 rounded-xl bg-paper border border-hairline flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- 9. INSTITUTIONAL PUBLIC RECORD FOOTER                                 -->
+  <!-- ===================================================================== -->
+  <footer class="bg-ink text-archival pt-14 pb-10 border-t-4 border-crimson">
+    <div class="max-w-[1320px] mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-10 border-b border-white/15">
+        
+        <!-- Institutional Colophon -->
+        <div class="lg:col-span-5 space-y-3.5">
+          <div class="flex items-center gap-3">
+            <svg class="w-10 h-10 shrink-0" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="2" y="2" width="56" height="56" rx="12" fill="#1E242B" stroke="#FFFFFF" stroke-opacity="0.2"/>
+              <path d="M39 15.5C36.2 13.5 32.8 12.4 29.2 12.4C19.5 12.4 11.6 20.3 11.6 30C11.6 34.1 13 37.8 15.4 40.8L12.5 47.2L19.4 44.6C22.3 46.5 25.6 47.6 29.2 47.6C34.5 47.6 39.2 45.3 42.4 41.7" stroke="#A62626" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20.6 28L27.5 36.4L37.2 21.5" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M41.2 22.6C43.5 24.8 44.9 27.9 44.9 31.1C44.9 34.3 43.5 37.2 41.3 39.3" stroke="#D9A043" stroke-width="2.6" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <div class="font-serif text-xl font-black tracking-tight text-white">CONSUMER VOICE</div>
+              <div class="font-mono text-[10px] text-amber-300 uppercase tracking-wider">Est. 1983 • New Delhi, India</div>
+            </div>
+          </div>
+
+          <p class="text-xs text-slate-300 leading-relaxed">
+            <strong>Voluntary Organisation in Interest of Consumer Education (VOICE)</strong> — Registered non-profit public-interest society (est. 1983). Empaneled VCO with the Department of Consumer Affairs, Government of India, and Full Member of Consumers International.
+          </p>
+          <p class="font-mono text-[11px] text-slate-400">
+            Registered Office: 441, Jangpura, Mathura Road, New Delhi – 110014 • Email: info@consumer-voice.org
+          </p>
+        </div>
+
+        <!-- Navigation & Statutory Links -->
+        <div class="lg:col-span-2 space-y-2.5">
+          <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-amber-300">Evidence &amp; Press</h3>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li><a href="#lab-ledger" class="hover:text-white transition">The Lab Ledger</a></li>
+            <li><button type="button" onclick="openFlipbook(0)" class="hover:text-white transition">VOICE Flipbook</button></li>
+            <li><a href="#voice-magazine" class="hover:text-white transition">Investigative Blogs</a></li>
+            <li><a href="#public-campaigns" class="hover:text-white transition">Food Safety Campaigns</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 space-y-2.5">
+          <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-amber-300">Citizen Redressal</h3>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li><a href="#legal-workbench" class="hover:text-white transition">Statutory Notice Builder</a></li>
+            <li><a href="#legal-workbench" class="hover:text-white transition">NCH 1915 Escalation</a></li>
+            <li><a href="#integrity-charter" class="hover:text-white transition">Zero-Ad Charter</a></li>
+            <li><a href="#institutional-heritage" class="hover:text-white transition">1983–2026 Archive</a></li>
+          </ul>
+        </div>
+
+        <!-- Public Dispatch Subscription -->
+        <div class="lg:col-span-3 space-y-2.5">
+          <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-amber-300">Public Record Dispatch</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Receive bi-monthly VOICE Magazine flipbook links and NABL lab safety alerts.
+          </p>
+          <form onsubmit="handleDispatchSubscribe(event)" class="space-y-2">
+            <input
+              type="email"
+              id="dispatch-email"
+              required
+              placeholder="Enter email address"
+              aria-label="Enter email address"
+              class="w-full px-3 py-2 rounded-lg bg-paper text-ink text-xs focus:outline-none"
+            />
+            <button type="submit" class="w-full py-2 rounded-lg bg-crimson hover:bg-crimson-dark text-white text-xs font-bold transition">
+              Subscribe to Public Record
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-[11px] text-slate-400">
+        <span>© 2026 Consumer VOICE India. All Rights Reserved.</span>
+        <span>Zero Corporate Ads • NABL ISO/IEC 17025 • Public-Interest Advocacy</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- MODALS (LAB DOSSIER, SIDE-BY-SIDE COMPARE, FLIPBOOK, ARTICLE, SUPPORT) -->
+  <!-- ===================================================================== -->
+
+  <!-- MODAL A: NABL LAB DOSSIER & SIDE-BY-SIDE COMPARISON MODAL -->
+  <div id="dossier-modal" class="hidden fixed inset-0 z-50 bg-ink/75 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="dossier-modal-title">
+    <div class="bg-paper rounded-xl border border-hairline w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="px-6 py-4 bg-ink text-archival flex items-center justify-between gap-4">
+        <div>
+          <span id="dossier-modal-batch" class="font-mono text-[10.5px] text-amber-300 uppercase">NABL ISO/IEC 17025 LABORATORY DOSSIER</span>
+          <h3 id="dossier-modal-title" class="font-serif text-lg sm:text-xl font-extrabold">Comparative Test Dossier</h3>
+        </div>
+        <button type="button" onclick="closeModal('dossier-modal')" class="p-2 rounded text-white/80 hover:bg-white/10 hover:text-white" aria-label="Close Modal">✕</button>
+      </div>
+      <div id="dossier-modal-body" class="p-6 overflow-y-auto space-y-4"></div>
+    </div>
+  </div>
+
+  <!-- MODAL B: INTERACTIVE VOICE MAGAZINE HTML5 FLIPBOOK READER -->
+  <div id="flipbook-modal" onclick="if(event.target===this) closeFlipbook()" class="hidden fixed inset-0 z-50 bg-ink/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="flip-modal-title">
+    <div class="bg-paper rounded-xl border border-hairline w-full max-w-4xl max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="px-5 sm:px-6 py-4 bg-ink text-archival flex items-center justify-between gap-4">
+        <div>
+          <span id="flip-modal-meta" class="font-mono text-[10.5px] text-amber-300 uppercase">VOICE MAGAZINE • NOV–DEC 2026 • SPREAD 1 OF 4</span>
+          <h3 id="flip-modal-title" class="font-serif text-lg sm:text-xl font-extrabold">Interactive Flipbook Edition</h3>
+        </div>
+        <button type="button" onclick="closeFlipbook()" class="p-2 rounded text-white/80 hover:bg-white/10 hover:text-white transition" aria-label="Close Flipbook">✕</button>
+      </div>
+      <div id="flip-modal-body" class="p-4 sm:p-6 overflow-y-auto space-y-4"></div>
+    </div>
+  </div>
+
+  <!-- MODAL C: FULL INVESTIGATION / BLOG READER MODAL -->
+  <div id="reader-modal" class="hidden fixed inset-0 z-50 bg-ink/75 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="reader-modal-title">
+    <div class="bg-paper rounded-xl border border-hairline w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="px-6 py-4 bg-ink text-archival flex items-center justify-between gap-4">
+        <div>
+          <span id="reader-modal-kicker" class="font-mono text-[10.5px] text-amber-300 uppercase">Consumer VOICE Investigation</span>
+          <h3 id="reader-modal-title" class="font-serif text-lg sm:text-xl font-extrabold">Full Report</h3>
+        </div>
+        <button type="button" onclick="closeModal('reader-modal')" class="p-2 rounded text-white/80 hover:bg-white/10 hover:text-white" aria-label="Close Reader">✕</button>
+      </div>
+      <div id="reader-modal-body" class="p-6 overflow-y-auto space-y-4 text-sm text-ink leading-relaxed"></div>
+    </div>
+  </div>
+
+  <!-- MODAL D: SUPPORT INDEPENDENT TESTING (80G) MODAL -->
+  <div id="support-modal" class="hidden fixed inset-0 z-50 bg-ink/75 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="support-modal-title">
+    <div class="bg-paper rounded-xl border border-hairline w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="px-6 py-4 bg-crimson text-white flex items-center justify-between gap-4">
+        <div>
+          <span class="font-mono text-[10.5px] uppercase text-white/85">Zero Corporate Ads • Sec. 80G Eligible</span>
+          <h3 id="support-modal-title" class="font-serif text-lg font-extrabold">Support Independent Lab Testing</h3>
+        </div>
+        <button type="button" onclick="closeModal('support-modal')" class="p-2 rounded text-white/85 hover:bg-white/15" aria-label="Close Support Modal">✕</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4 text-xs sm:text-sm text-ink">
+        <p class="text-ink-muted leading-relaxed">
+          Consumer VOICE purchases every test sample anonymously from Indian retail markets and accepts zero corporate advertisements. Citizen contributions sustain independent lab testing and free pre-litigation guidance.
+        </p>
+        <form onsubmit="event.preventDefault(); closeModal('support-modal'); showToast('Thank you for supporting independent consumer testing!');" class="space-y-3">
+          <div class="grid grid-cols-4 gap-2 font-mono">
+            <button type="button" onclick="document.getElementById('support-amount').value=500" class="py-2 rounded border border-hairline bg-archival font-bold hover:border-ink">₹500</button>
+            <button type="button" onclick="document.getElementById('support-amount').value=1000" class="py-2 rounded border border-hairline bg-archival font-bold hover:border-ink">₹1,000</button>
+            <button type="button" onclick="document.getElementById('support-amount').value=2500" class="py-2 rounded border border-hairline bg-archival font-bold hover:border-ink">₹2,500</button>
+            <button type="button" onclick="document.getElementById('support-amount').value=5000" class="py-2 rounded border border-hairline bg-archival font-bold hover:border-ink">₹5,000</button>
+          </div>
+          <input id="support-amount" type="number" min="100" value="1000" required class="w-full px-3.5 py-2.5 rounded-lg bg-archival border border-hairline font-mono font-bold text-ink" />
+          <input type="text" required placeholder="Full Name (for 80G Receipt)" class="w-full px-3.5 py-2.5 rounded-lg bg-archival border border-hairline text-ink" />
+          <button type="submit" class="w-full py-3 rounded-lg bg-ink hover:bg-crimson text-white text-xs sm:text-sm font-bold transition">
+            Contribute to Public-Interest Testing →
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast-notification" class="hidden fixed bottom-5 right-5 z-50 bg-ink text-archival px-4 py-3 rounded-lg border border-white/15 shadow-xl flex items-center gap-2.5 text-xs font-medium max-w-sm">
+    <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+    <span id="toast-text">Action completed.</span>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT LOGIC                                                      -->
+  <!-- ===================================================================== -->
+  <script>
+    // -----------------------------------------------------------------------
+    // 1. BILINGUAL SWITCHER (ENGLISH / HINDI)
+    // -----------------------------------------------------------------------
+    const i18nStrings = {
+      en: {
+        strip_est: 'EST. 1983 • NEW DELHI',
+        strip_vco: 'RECOGNIZED VCO (DEPT. OF CONSUMER AFFAIRS, GOVT. OF INDIA)',
+        strip_charter: 'ZERO CORPORATE ADVERTISING CHARTER',
+        strip_helpline: 'NCH 1915 & VCO Notice Desk →',
+        masthead_tagline: 'Informing Choices. Enforcing Accountability. Since 1983.',
+        btn_read_issue: 'Read Nov–Dec Issue',
+        btn_support: 'Support Independent Testing',
+        nav_ledger: 'The Lab Ledger',
+        nav_magazine: 'VOICE Magazine',
+        nav_legal: 'Legal & Redressal',
+        nav_campaigns: 'Food Safety & Campaigns',
+        nav_charter: 'Zero-Ad Charter',
+        nav_heritage: '1983–2026 Archive',
+        lead_headline: '44th Year Milestone: Relaunching Independent NABL Comparative Product Testing & Front-of-Pack Food Label Audits Across India',
+        lead_deck: 'Purchased anonymously off retail shelves and evaluated in NABL-accredited laboratories, Consumer VOICE’s latest comparative dossiers audit edible oils, packaged drinking water, energy-efficient appliances, and front-of-pack nutrition claims—arming citizens with verifiable facts before they buy.',
+        sec_ledger_title: 'The Comparative Lab Ledger'
+      },
+      hi: {
+        strip_est: 'स्थापना 1983 • नई दिल्ली',
+        strip_vco: 'मान्यता प्राप्त VCO (उपभोक्ता मामले विभाग, भारत सरकार)',
+        strip_charter: 'शून्य कॉर्पोरेट विज्ञापन चार्टर',
+        strip_helpline: 'NCH 1915 और VCO नोटिस डेस्क →',
+        masthead_tagline: 'जागरूक चुनाव। जवाबदेही की स्थापना। 1983 से निरंतर।',
+        btn_read_issue: 'नवंबर–दिसंबर अंक पढ़ें',
+        btn_support: 'स्वतंत्र परीक्षण का समर्थन करें',
+        nav_ledger: 'लैब लेजर (परीक्षण)',
+        nav_magazine: 'VOICE पत्रिका',
+        nav_legal: 'कानूनी सहायता डेस्क',
+        nav_campaigns: 'खाद्य सुरक्षा और अभियान',
+        nav_charter: 'शून्य-विज्ञापन चार्टर',
+        nav_heritage: '1983–2026 विरासत',
+        lead_headline: '44वां वर्ष मील का पत्थर: भारत भर में स्वतंत्र NABL तुलनात्मक उत्पाद परीक्षण और फ्रंट-ऑफ-पैक खाद्य लेबल ऑडिट का पुनरारंभ',
+        lead_deck: 'खुदरा बाजार से गुमनाम रूप से खरीदे गए और NABL-मान्यता प्राप्त प्रयोगशालाओं में परीक्षित, कंज्यूमर वॉयस की नवीनतम रिपोर्टें खाद्य तेलों, पैकेज्ड पेयजल, ऊर्जा-कुशल उपकरणों और पोषण लेबल दावों की सच्चाई सामने लाती हैं।',
+        sec_ledger_title: 'तुलनात्मक NABL लैब लेजर'
+      }
+    };
+
+    function setLanguage(lang) {
+      const dict = i18nStrings[lang] || i18nStrings.en;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.textContent = dict[key];
+      });
+
+      const enBtn = document.getElementById('btn-lang-en');
+      const hiBtn = document.getElementById('btn-lang-hi');
+      if (lang === 'hi') {
+        hiBtn.className = 'px-2.5 py-0.5 text-[11px] font-bold bg-archival text-ink transition';
+        enBtn.className = 'px-2.5 py-0.5 text-[11px] font-medium text-archival/85 hover:text-white transition';
+        showToast('भाषा हिंदी में बदली गई (Hindi Mode Active)');
+      } else {
+        enBtn.className = 'px-2.5 py-0.5 text-[11px] font-bold bg-archival text-ink transition';
+        hiBtn.className = 'px-2.5 py-0.5 text-[11px] font-medium text-archival/85 hover:text-white transition';
+        showToast('Language set to English');
+      }
+    }
+
+    function toggleMobileNav() {
+      document.getElementById('mobile-nav-drawer').classList.toggle('hidden');
+    }
+
+    // -----------------------------------------------------------------------
+    // 2. COMPARATIVE LAB LEDGER DATA, FILTERING, COMPARISON & CITIZEN BALLOT
+    // -----------------------------------------------------------------------
+    const labLedgerRecords = [
+      {
+        id: 'mustard-oil',
+        category: 'food',
+        categoryName: 'Food & Nutrition',
+        title: 'Cold-Pressed Kachi Ghani Mustard Oil (15 Brands)',
+        batchId: 'CV-LAB-2026-MO15',
+        keyMetric: 'Trans-Fat: 0.0% • Argemone: Nil (IS 546)',
+        score: '92 / 100',
+        verdict: 'Best Buy',
+        verdictBadge: 'bg-labgreen-soft text-labgreen border-labgreen/30',
+        summary: 'Tested under IS 546 for adulteration with argemone/mineral oil, natural allyl isothiocyanate pungency, trans-fat content, and fatty acid profile.',
+        brands: [
+          { rank: 1, name: 'Fortune Kachi Ghani Mustard Oil', score: 92, verdict: 'Best Buy', metric: '0.0% Trans-Fat • Pure Seed Oil', note: 'Passed all IS 546 purity & freshness benchmarks' },
+          { rank: 2, name: 'Dhara Kachi Ghani Mustard', score: 89, verdict: 'Recommended', metric: '0.0% Trans-Fat • High Pungency', note: 'Zero adulteration; tamper-evident retail seal' },
+          { rank: 3, name: 'Unbranded Loose Retail Sample #4', score: 44, verdict: 'Safety Caution', metric: 'Failed Peroxide & Dye Test', note: 'Exceeded rancidity threshold; synthetic colour trace' }
+        ]
+      },
+      {
+        id: 'drinking-water',
+        category: 'food',
+        categoryName: 'Food & Nutrition',
+        title: 'Packaged Drinking Water & Heavy Metals Audit (12 Brands)',
+        batchId: 'CV-LAB-2026-DW12',
+        keyMetric: 'Microbiology: Pass • Heavy Metals: Nil (IS 14543)',
+        score: '93 / 100',
+        verdict: 'Best Buy (3 Flagged)',
+        verdictBadge: 'bg-brass-soft text-brass border-brass/30',
+        summary: 'Evaluated under IS 14543 for total dissolved solids (TDS), pH balance, bromate residues, trace lead/arsenic/cadmium, and coliform absence.',
+        brands: [
+          { rank: 1, name: 'Bisleri Packaged Drinking Water', score: 93, verdict: 'Best Buy', metric: 'TDS 118 mg/L • Nil Heavy Metals', note: 'Passed all microbiological, mineral & cap-seal tests' },
+          { rank: 2, name: 'Kinley Packaged Drinking Water', score: 90, verdict: 'Recommended', metric: 'TDS 104 mg/L • Zero Bromate', note: 'Consistent mineral balance & BIS ISI mark compliance' },
+          { rank: 3, name: 'Regional Bottled Brand #9', score: 47, verdict: 'Safety Caution', metric: 'Elevated Bromate & Weak Seal', note: 'Failed ozonation byproduct limit & tamper-evident seal check' }
+        ]
+      },
+      {
+        id: 'chocolates',
+        category: 'food',
+        categoryName: 'Food & Nutrition',
+        title: 'Dark & Milk Chocolate Bars (15 Popular Brands)',
+        batchId: 'CV-LAB-2026-CH15',
+        keyMetric: 'Cocoa Solids: 75.4% • Heavy Metals: Audited',
+        score: '90 / 100',
+        verdict: 'Best Buy (4 Flagged)',
+        verdictBadge: 'bg-brass-soft text-brass border-brass/30',
+        summary: 'Evaluated for real cocoa solids, cocoa butter vs. hydrogenated vegetable fat replacers, total sugar, and trace lead/cadmium.',
+        brands: [
+          { rank: 1, name: 'Amul 75% Bitter Dark Chocolate', score: 90, verdict: 'Best Buy', metric: '75.4% Cocoa • Zero Veg Fat', note: 'Highest verified cocoa solids & clean heavy-metal profile' },
+          { rank: 2, name: 'Lindt Excellence 70% Cocoa', score: 88, verdict: 'Recommended', metric: '70.2% Cocoa • Pure Cocoa Butter', note: 'Authentic cocoa butter composition; higher retail price' },
+          { rank: 3, name: 'Budget Compound Bar Sample #11', score: 49, verdict: 'Safety Caution', metric: '56g Sugar/100g • Veg Fat Base', note: 'Substituted cocoa butter with hydrogenated vegetable fats' }
+        ]
+      },
+      {
+        id: 'home-appliances',
+        category: 'appliances',
+        categoryName: 'Home Appliances',
+        title: 'HEPA H13 Air Purifiers & BEE 5-Star Fans (10 Models)',
+        batchId: 'CV-LAB-2026-AP10',
+        keyMetric: 'CADR: 380 m³/hr • PM2.5 Removal: 99.6%',
+        score: '93 / 100',
+        verdict: 'Best Buy',
+        verdictBadge: 'bg-labgreen-soft text-labgreen border-labgreen/30',
+        summary: 'Chamber-tested for 15-minute PM2.5 particulate reduction, sleep-mode noise (dB), standby wattage, and 2-year filter replacement cost.',
+        brands: [
+          { rank: 1, name: 'Philips Smart H13 Air Purifier', score: 93, verdict: 'Best Buy', metric: '99.6% PM2.5 Drop in 15m', note: 'Fastest chamber clearance & lowest annual filter cost' },
+          { rank: 2, name: 'Coway AirMega 150', score: 90, verdict: 'Best Buy', metric: '8,500-Hr HEPA Filter Life', note: 'Quiet sleep operation (40 dB) & strong build quality' }
+        ]
+      },
+      {
+        id: 'kitchen-toiletries',
+        category: 'kitchen',
+        categoryName: 'Kitchen & Toiletries',
+        title: 'ISI Pressure Cookers & Biodegradable Dishwash Liquids (12 Brands)',
+        batchId: 'CV-LAB-2026-KT12',
+        keyMetric: 'Burst Pressure Safety: 6x • Biodegradability: 94%',
+        score: '91 / 100',
+        verdict: 'Best Buy',
+        verdictBadge: 'bg-labgreen-soft text-labgreen border-labgreen/30',
+        summary: 'Tested under IS 2347 for pressure cooker gasket/safety-valve endurance and IS 6047 for surfactant biodegradability and skin pH neutrality.',
+        brands: [
+          { rank: 1, name: 'Hawkins Contura Hard Anodised (IS 2347)', score: 91, verdict: 'Best Buy', metric: 'Passed 6x Proof Pressure Test', note: 'Precision safety valve release & heavy-gauge base stability' },
+          { rank: 2, name: 'Prestige Svachh Stainless Steel', score: 88, verdict: 'Recommended', metric: 'IS 2347 Compliant • Spillage Control', note: 'Passed thermal shock & handle load endurance tests' }
+        ]
+      },
+      {
+        id: 'banking-insurance',
+        category: 'banking',
+        categoryName: 'Banking & Insurance',
+        title: 'Senior Citizen Health Insurance & Digital Banking Grievance Audit',
+        batchId: 'CV-FIN-2026-BI08',
+        keyMetric: 'Claim Settlement: 96.4% • Ombudsman Escalation',
+        score: '87 / 100',
+        verdict: 'Recommended',
+        verdictBadge: 'bg-labgreen-soft text-labgreen border-labgreen/30',
+        summary: 'Comparative audit of waiting-period clauses, room-rent sub-limits, co-payment disclosures, and 48-hour grievance turnaround across 8 insurers.',
+        brands: [
+          { rank: 1, name: 'HDFC ERGO Optima Secure (Senior Plan)', score: 87, verdict: 'Recommended', metric: 'Zero Room-Rent Capping', note: 'Transparent policy wording & clear pre-existing waiting schedule' },
+          { rank: 2, name: 'New India Assurance Senior Mediclaim', score: 83, verdict: 'Value Pick', metric: 'Low Annual Renewal Premium', note: 'Public-sector network coverage; moderate co-pay clause' }
+        ]
+      }
+    ];
+
+    let activeLedgerCategory = 'all';
+    let ledgerSearchQuery = '';
+    let selectedLedgerIds = [];
+
+    function renderLabLedger() {
+      const tbody = document.getElementById('lab-ledger-tbody');
+      const rows = labLedgerRecords.filter(r => {
+        const matchesCat = activeLedgerCategory === 'all' || r.category === activeLedgerCategory;
+        const q = ledgerSearchQuery.trim().toLowerCase();
+        const matchesSearch = !q || r.title.toLowerCase().includes(q) || r.batchId.toLowerCase().includes(q) || r.keyMetric.toLowerCase().includes(q);
+        return matchesCat && matchesSearch;
+      });
+
+      if (rows.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="py-8 px-4 text-center text-xs text-ink-muted">No lab dossiers matched your filter. Try clearing the search box.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = rows.map(r => {
+        const checked = selectedLedgerIds.includes(r.id);
+        return `
+          <tr class="${checked ? 'bg-brass-soft/50' : 'hover:bg-archival/60'} transition">
+            <td class="py-3.5 px-3.5 align-top">
+              <input
+                type="checkbox"
+                ${checked ? 'checked' : ''}
+                onchange="toggleLedgerCompare('${r.id}')"
+                aria-label="Compare ${r.title}"
+                class="w-4 h-4 rounded border-hairline accent-crimson cursor-pointer mt-0.5"
+              />
+            </td>
+            <td class="py-3.5 px-3.5 align-top">
+              <div class="font-mono text-[10px] text-ink-muted">${r.batchId} • ${r.categoryName}</div>
+              <div class="font-serif text-sm sm:text-[15px] font-bold text-ink mt-0.5">${r.title}</div>
+            </td>
+            <td class="py-3.5 px-3.5 align-top font-mono text-[11.5px] text-ink">
+              ${r.keyMetric}
+            </td>
+            <td class="py-3.5 px-3.5 align-top">
+              <span class="inline-block font-mono text-[11px] font-bold px-2.5 py-1 rounded border tabular-nums ${r.verdictBadge}">
+                ${r.score} • ${r.verdict}
+              </span>
+            </td>
+            <td class="py-3.5 px-3.5 align-top text-right">
+              <button
+                type="button"
+                onclick="openDossierModal('${r.id}')"
+                class="font-mono text-[11px] font-bold text-ink hover:text-crimson underline underline-offset-4 transition"
+              >
+                Open Dossier
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterLabLedger(cat) {
+      activeLedgerCategory = cat;
+      document.querySelectorAll('.ledger-tab').forEach(btn => {
+        if (btn.getAttribute('data-ledger-cat') === cat) {
+          btn.className = 'ledger-tab px-3 py-1.5 rounded-md text-xs font-bold bg-ink text-white transition';
+        } else {
+          btn.className = 'ledger-tab px-3 py-1.5 rounded-md text-xs font-semibold bg-paper text-ink border border-hairline hover:border-ink transition';
+        }
+      });
+      renderLabLedger();
+    }
+
+    function handleGlobalSearch(val) {
+      ledgerSearchQuery = val;
+      renderLabLedger();
+    }
+
+    function toggleLedgerCompare(id) {
+      if (selectedLedgerIds.includes(id)) {
+        selectedLedgerIds = selectedLedgerIds.filter(item => item !== id);
+      } else {
+        if (selectedLedgerIds.length >= 3) {
+          showToast('Maximum 3 dossiers can be compared side-by-side.');
+          renderLabLedger();
+          return;
+        }
+        selectedLedgerIds.push(id);
+      }
+      updateLedgerCompareBar();
+      renderLabLedger();
+    }
+
+    function clearLedgerCompare() {
+      selectedLedgerIds = [];
+      updateLedgerCompareBar();
+      renderLabLedger();
+    }
+
+    function updateLedgerCompareBar() {
+      const bar = document.getElementById('ledger-compare-bar');
+      if (selectedLedgerIds.length === 0) {
+        bar.classList.add('hidden');
+        return;
+      }
+      bar.classList.remove('hidden');
+      document.getElementById('ledger-compare-count').textContent = `${selectedLedgerIds.length} / 3 Selected`;
+      const titles = selectedLedgerIds.map(id => labLedgerRecords.find(r => r.id === id)?.title).filter(Boolean);
+      document.getElementById('ledger-compare-names').textContent = titles.join('  |  ');
+    }
+
+    function openLedgerCompareModal() {
+      const items = selectedLedgerIds.map(id => labLedgerRecords.find(r => r.id === id)).filter(Boolean);
+      if (items.length === 0) return;
+
+      document.getElementById('dossier-modal-batch').textContent = 'SIDE-BY-SIDE EMPIRICAL COMPARISON MATRIX';
+      document.getElementById('dossier-modal-title').textContent = `Comparing ${items.length} Tested Categories`;
+      document.getElementById('dossier-modal-body').innerHTML = `
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="border-b-2 border-ink">
+                <th class="py-2.5 pr-4 font-mono text-xs text-ink-muted uppercase">Parameter</th>
+                ${items.map(i => `<th class="py-2.5 px-3 font-serif font-extrabold text-ink">${i.title}</th>`).join('')}
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-hairline">
+              <tr>
+                <td class="py-3 pr-4 font-mono text-xs font-bold text-ink-muted">NABL Batch ID</td>
+                ${items.map(i => `<td class="py-3 px-3 font-mono text-xs">${i.batchId}</td>`).join('')}
+              </tr>
+              <tr>
+                <td class="py-3 pr-4 font-mono text-xs font-bold text-ink-muted">Key Empirical Metric</td>
+                ${items.map(i => `<td class="py-3 px-3 font-mono text-xs font-semibold">${i.keyMetric}</td>`).join('')}
+              </tr>
+              <tr>
+                <td class="py-3 pr-4 font-mono text-xs font-bold text-ink-muted">Composite Verdict</td>
+                ${items.map(i => `<td class="py-3 px-3"><span class="font-mono text-xs font-bold px-2 py-0.5 rounded border ${i.verdictBadge}">${i.score} • ${i.verdict}</span></td>`).join('')}
+              </tr>
+              <tr>
+                <td class="py-3 pr-4 font-mono text-xs font-bold text-ink-muted">Top Ranked Sample</td>
+                ${items.map(i => `<td class="py-3 px-3 text-xs font-bold">${i.brands[0].name} (${i.brands[0].score})</td>`).join('')}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `;
+      document.getElementById('dossier-modal').classList.remove('hidden');
+    }
+
+    function openDossierModal(id) {
+      const rec = labLedgerRecords.find(r => r.id === id);
+      if (!rec) return;
+
+      document.getElementById('dossier-modal-batch').textContent = `${rec.batchId} • ${rec.categoryName}`;
+      document.getElementById('dossier-modal-title').textContent = rec.title;
+      document.getElementById('dossier-modal-body').innerHTML = `
+        <p class="text-xs sm:text-sm text-ink-muted leading-relaxed">${rec.summary}</p>
+        <div class="space-y-3">
+          ${rec.brands.map(b => `
+            <div class="p-4 rounded-xl bg-archival border border-hairline flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div class="space-y-1">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="font-mono text-xs font-bold px-2 py-0.5 rounded bg-ink text-white">#${b.rank}</span>
+                  <span class="font-serif text-base font-extrabold text-ink">${b.name}</span>
+                  <span class="font-mono text-[11px] font-bold px-2 py-0.5 rounded bg-paper border border-hairline text-labgreen">${b.verdict}</span>
+                </div>
+                <div class="font-mono text-xs text-ink">${b.metric}</div>
+                <p class="text-xs text-ink-muted">${b.note}</p>
+              </div>
+              <div class="font-mono text-xl font-extrabold text-ink tabular-nums shrink-0">
+                ${b.score}<span class="text-xs font-normal text-ink-muted">${typeof b.score === 'number' && b.score > 14 ? '/100' : '/14'}</span>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      document.getElementById('dossier-modal').classList.remove('hidden');
+    }
+
+    // Citizen Lab Ballot
+    const ballotItems = [
+      { id: 'bal-spices', label: 'Packaged Turmeric, Chilli & Garam Masala Purity (FSSAI)', count: 448 },
+      { id: 'bal-water', label: '20-Litre Jar & Packaged Drinking Water Heavy Metals', count: 362 },
+      { id: 'bal-helmets', label: 'ISI-Certified Two-Wheeler Helmets Impact Safety (IS 4151)', count: 294 },
+      { id: 'bal-health', label: 'Health Insurance Claim Rejection & Hidden Sub-Limit Clauses', count: 238 }
+    ];
+    let castBallotId = null;
+
+    function renderCitizenBallot() {
+      const total = ballotItems.reduce((acc, b) => acc + b.count, 0);
+      document.getElementById('ballot-total-label').textContent = `${total.toLocaleString()} ballots`;
+
+      document.getElementById('citizen-ballot-options').innerHTML = ballotItems.map(b => {
+        const pct = Math.round((b.count / total) * 100);
+        const active = castBallotId === b.id;
+        return `
+          <button
+            type="button"
+            onclick="voteCitizenBallot('${b.id}')"
+            class="w-full text-left p-3 rounded-lg border ${active ? 'border-crimson bg-crimson-soft/60' : 'border-hairline bg-archival hover:border-ink'} transition"
+          >
+            <div class="flex items-center justify-between gap-2 text-xs font-bold text-ink">
+              <span>${active ? '✓ ' : ''}${b.label}</span>
+              <span class="font-mono text-crimson tabular-nums">${pct}%</span>
+            </div>
+            <div class="mt-1.5 w-full h-1.5 rounded bg-parchment overflow-hidden">
+              <div class="h-full ${active ? 'bg-crimson' : 'bg-ink'} transition-all duration-300" style="width: ${pct}%;"></div>
+            </div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function voteCitizenBallot(id) {
+      if (castBallotId === id) return;
+      if (castBallotId) {
+        const prev = ballotItems.find(b => b.id === castBallotId);
+        if (prev) prev.count -= 1;
+      }
+      const chosen = ballotItems.find(b => b.id === id);
+      if (chosen) {
+        chosen.count += 1;
+        castBallotId = id;
+        renderCitizenBallot();
+        document.getElementById('citizen-ballot-note').innerHTML = `
+          <span class="text-labgreen font-bold">✓ Ballot Recorded:</span> Your priority vote for <strong>${chosen.label}</strong> has been logged.
+        `;
+        showToast(`Ballot cast for "${chosen.label}"`);
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // 3. VOICE MAGAZINE FLIPBOOK READER, FIELD NOTES & PUBLIC BROADCASTS
+    // -----------------------------------------------------------------------
+    const magazineSpreads = [
+      {
+        pillLabel: 'Cover & Editorial',
+        tocTitle: 'Cover & Editorial: 44 Years of Independent Consumer Testing',
+        leftPageNum: 'PAGE 01',
+        leftTag: 'Nov–Dec 2026 • Vol. 44, Issue 6',
+        leftHeading: '44 Years of Uncompromising Public-Interest Testing & Advocacy',
+        leftBody: 'Every product evaluated in our NABL-accredited laboratory program is purchased anonymously off Indian retail shelves. Zero corporate ads. Zero brand sponsorships. Pure empirical evidence for Indian households.',
+        rightPageNum: 'PAGE 02',
+        rightTag: 'Inside This Issue',
+        rightHeading: 'Consumer Rights & Buyer’s Roadmap (Nov–Dec 2026)',
+        rightBullets: [
+          'Pg 04: Edible Oils & Trans-Fat Audit — 15 Mustard & Blended Oils Tested under IS 546.',
+          'Pg 10: Packaged Drinking Water & Heavy Metals Audit — 12 Brands Tested under IS 14543.',
+          'Pg 16: Trapped in the Chatbot Loop — Enforcing Rule 4(5) of E-Commerce Rules, 2020.',
+          'Pg 22: HEPA H13 Air Purifiers & ISI Pressure Cookers — Winter & Kitchen Safety Benchmarks.'
+        ]
+      },
+      {
+        pillLabel: 'Pg 04: Edible Oils & Trans-Fat Lab Test',
+        tocTitle: 'Pg 04: Edible Oils & Trans-Fat Lab Test (IS 546)',
+        leftPageNum: 'PAGE 04',
+        leftTag: 'NABL Comparative Dossier • CV-LAB-2026-MO15',
+        leftHeading: '15 Mustard & Blended Cooking Oils Tested for Purity & Trans-Fats',
+        leftBody: 'Blind-coded retail samples were analyzed in NABL ISO/IEC 17025 laboratories for argemone oil adulteration, mineral oil contamination, natural pungency (allyl isothiocyanate), and trans-fatty acids.',
+        rightPageNum: 'PAGE 05',
+        rightTag: 'Verified Lab Findings & Buyer Guidance',
+        rightBullets: [
+          'Best Buy (92/100): Fortune Kachi Ghani Mustard Oil — 0.0% trans-fat and nil adulteration.',
+          'Recommended (89/100): Dhara Kachi Ghani Mustard — passed all freshness & purity checks.',
+          'Safety Caution (44/100): Unsealed loose retail oil samples exceeded peroxide rancidity limits and showed synthetic dye traces.'
+        ]
+      },
+      {
+        pillLabel: 'Pg 10: Packaged Water & Heavy Metals',
+        tocTitle: 'Pg 10: Packaged Drinking Water & Heavy Metals Audit (IS 14543)',
+        leftPageNum: 'PAGE 10',
+        leftTag: 'NABL Comparative Dossier • CV-LAB-2026-DW12',
+        leftHeading: '12 Packaged Drinking Water Brands Audited for Microbiological & Metal Safety',
+        leftBody: 'Samples procured across retail hubs were tested under IS 14543 for total dissolved solids (TDS), pH balance, bromate residues, lead, arsenic, cadmium, and tamper-evident cap integrity.',
+        rightPageNum: 'PAGE 11',
+        rightTag: 'Scorecard & Consumer Verification Checklist',
+        rightBullets: [
+          'Best Buy (93/100): Bisleri Packaged Drinking Water — TDS 118 mg/L, nil heavy metals, 100% microbiological pass.',
+          'Recommended (90/100): Kinley Packaged Drinking Water — clean mineral profile & zero bromate.',
+          '3 Regional Brands Flagged: Always verify the stamped BIS IS 14543 ISI mark and CM/L license number before purchase.'
+        ]
+      },
+      {
+        pillLabel: 'Pg 16: E-Commerce Chatbot Loops & Rule 4(5)',
+        tocTitle: 'Pg 16: E-Commerce Chatbot Loops & Rule 4(5) Notice Guide',
+        leftPageNum: 'PAGE 16',
+        leftTag: 'Citizen Redressal & Statutory Rights',
+        leftHeading: 'Trapped in the Chatbot Loop: How to Force Human Escalation Under Law',
+        leftBody: 'Automated support menus deflect 70–85% of legitimate refund claims until return windows expire. Under Indian consumer law, platforms cannot hide behind circular software.',
+        rightPageNum: 'PAGE 17',
+        rightTag: '3-Step Statutory Escape & Escalation Guide',
+        rightBullets: [
+          'Rule 4(5) of the Consumer Protection (E-Commerce) Rules, 2020 mandates a resident Grievance Officer, a complaint tracking number within 48 hours, and resolution within 30 days.',
+          'Type "Statutory Grievance Officer" or "CCPA Dark Pattern Violation" in chat and capture timestamped screenshots.',
+          'Escalate unanswered notices via National Consumer Helpline (1915) or Consumer VOICE Pre-Litigation Desk (info@consumer-voice.org).'
+        ]
+      }
+    ];
+
+    let activeFlipIndex = 0;
+    let flipTwoPageMode = true;
+    let flipZoomLarge = false;
+
+    function renderFlipbookModal() {
+      const metaEl = document.getElementById('flip-modal-meta');
+      const titleEl = document.getElementById('flip-modal-title');
+      const bodyEl = document.getElementById('flip-modal-body');
+      if (!metaEl || !titleEl || !bodyEl) return;
+
+      const sp = magazineSpreads[activeFlipIndex] || magazineSpreads[0];
+      metaEl.textContent = `VOICE MAGAZINE • NOV–DEC 2026 • SPREAD ${activeFlipIndex + 1} OF ${magazineSpreads.length}`;
+      titleEl.textContent = sp.tocTitle;
+
+      const textSizeClass = flipZoomLarge ? 'text-sm sm:text-base' : 'text-xs sm:text-sm';
+
+      bodyEl.innerHTML = `
+        <!-- Top Flipbook Controls -->
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-hairline">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <button type="button" onclick="toggleFlipMode(true)" class="px-2.5 py-1 rounded text-xs font-bold transition ${flipTwoPageMode ? 'bg-ink text-white' : 'bg-archival text-ink border border-hairline hover:border-ink'}">
+              2-Page Spread
+            </button>
+            <button type="button" onclick="toggleFlipMode(false)" class="px-2.5 py-1 rounded text-xs font-bold transition ${!flipTwoPageMode ? 'bg-ink text-white' : 'bg-archival text-ink border border-hairline hover:border-ink'}">
+              Single Page
+            </button>
+            <button type="button" onclick="toggleFlipZoom()" class="px-2.5 py-1 rounded text-xs font-bold bg-archival text-ink border border-hairline hover:border-ink transition">
+              ${flipZoomLarge ? 'Zoom: 120%' : 'Zoom: 100%'}
+            </button>
+          </div>
+
+          <button type="button" onclick="shareFlipbookWhatsApp()" class="px-3 py-1.5 rounded bg-labgreen hover:bg-labgreen-dark text-white text-xs font-bold transition">
+            Share on WhatsApp
+          </button>
+        </div>
+
+        <!-- Inside-Page Jump Pills -->
+        <div class="flex flex-wrap gap-1.5" role="tablist" aria-label="Flipbook Inside-Page Jump Pills">
+          ${magazineSpreads.map((item, idx) => `
+            <button
+              type="button"
+              onclick="openFlipbook(${idx})"
+              class="font-mono text-[10.5px] px-2.5 py-1 rounded border transition ${idx === activeFlipIndex ? 'bg-crimson text-white border-crimson font-bold' : 'bg-archival text-ink-muted border-hairline hover:border-ink'}"
+            >
+              ${item.pillLabel}
+            </button>
+          `).join('')}
+        </div>
+
+        <!-- Realistic Page-Curl Book Spread Container -->
+        <div class="relative grid grid-cols-1 ${flipTwoPageMode ? 'md:grid-cols-2' : ''} gap-0 rounded-xl border border-hairline overflow-hidden shadow-lg bg-parchment">
+          <!-- Left Page -->
+          <div class="relative p-5 sm:p-7 bg-archival ${flipTwoPageMode ? 'md:border-r md:border-hairline' : 'border-b border-hairline'} space-y-3" style="box-shadow: inset -14px 0 24px -18px rgba(20,24,31,0.22);">
+            <div class="flex items-center justify-between font-mono text-[10.5px]">
+              <span class="font-bold uppercase text-crimson">${sp.leftTag}</span>
+              <span class="text-ink-subtle">${sp.leftPageNum}</span>
+            </div>
+            <h4 class="font-serif text-lg sm:text-xl font-extrabold text-ink leading-snug">${sp.leftHeading}</h4>
+            <p class="${textSizeClass} text-ink-muted leading-relaxed">${sp.leftBody}</p>
+            <div class="pt-3 mt-auto border-t border-hairline/70 font-mono text-[10px] text-ink-subtle">
+              CONSUMER VOICE • ZERO CORPORATE ADS CHARTER
+            </div>
+          </div>
+
+          <!-- Right Page with Corner Page-Curl Effect -->
+          <div class="relative p-5 sm:p-7 bg-paper space-y-3" style="box-shadow: inset 14px 0 24px -18px rgba(20,24,31,0.18);">
+            <!-- Subtle Bottom-Right Page Curl Triangle -->
+            <div aria-hidden="true" class="hidden sm:block absolute bottom-0 right-0 w-9 h-9 pointer-events-none" style="background: linear-gradient(135deg, transparent 48%, rgba(20,24,31,0.12) 50%, #EFEAE0 54%, #FFFFFF 100%); border-top-left-radius: 6px;"></div>
+            <div class="flex items-center justify-between font-mono text-[10.5px]">
+              <span class="font-bold uppercase text-labgreen">${sp.rightTag}</span>
+              <span class="text-ink-subtle">${sp.rightPageNum}</span>
+            </div>
+            <h4 class="font-serif text-lg sm:text-xl font-extrabold text-ink leading-snug">${sp.rightHeading}</h4>
+            <ul class="space-y-2.5 ${textSizeClass} text-ink list-disc pl-4 leading-relaxed">
+              ${sp.rightBullets.map(b => `<li>${b}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Page Turn Controls -->
+        <div class="pt-3 border-t border-hairline flex items-center justify-between gap-3">
+          <button
+            type="button"
+            onclick="flipPrev()"
+            ${activeFlipIndex === 0 ? 'disabled' : ''}
+            class="px-4 py-2 rounded-lg border border-hairline text-xs font-bold transition ${activeFlipIndex === 0 ? 'opacity-40 cursor-not-allowed bg-archival text-ink-muted' : 'bg-archival hover:bg-parchment text-ink'}"
+          >
+            ← Previous Spread
+          </button>
+          <span class="font-mono text-xs font-bold text-ink-muted tabular-nums">Spread ${activeFlipIndex + 1} of ${magazineSpreads.length} • Use ← / → Keys</span>
+          <button
+            type="button"
+            onclick="flipNext()"
+            ${activeFlipIndex === magazineSpreads.length - 1 ? 'disabled' : ''}
+            class="px-4 py-2 rounded-lg text-white text-xs font-bold transition ${activeFlipIndex === magazineSpreads.length - 1 ? 'opacity-40 cursor-not-allowed bg-ink-subtle' : 'bg-ink hover:bg-crimson'}"
+          >
+            Next Spread →
+          </button>
+        </div>
+      `;
+    }
+
+    function openFlipbook(pageIndex = 0) {
+      const idx = Number.isInteger(pageIndex) && pageIndex >= 0 && pageIndex < magazineSpreads.length ? pageIndex : 0;
+      activeFlipIndex = idx;
+      renderFlipbookModal();
+      const modal = document.getElementById('flipbook-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeFlipbook() {
+      const modal = document.getElementById('flipbook-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.style.display = '';
+      }
+      document.body.style.overflow = '';
+    }
+
+    function flipPrev() {
+      if (activeFlipIndex > 0) {
+        activeFlipIndex -= 1;
+        renderFlipbookModal();
+      }
+    }
+
+    function flipNext() {
+      if (activeFlipIndex < magazineSpreads.length - 1) {
+        activeFlipIndex += 1;
+        renderFlipbookModal();
+      }
+    }
+
+    function toggleFlipMode(forceTwoPage) {
+      if (typeof forceTwoPage === 'boolean') {
+        flipTwoPageMode = forceTwoPage;
+      } else {
+        flipTwoPageMode = !flipTwoPageMode;
+      }
+      renderFlipbookModal();
+    }
+
+    function toggleFlipZoom() {
+      flipZoomLarge = !flipZoomLarge;
+      renderFlipbookModal();
+    }
+
+    function shareFlipbookWhatsApp() {
+      const sp = magazineSpreads[activeFlipIndex] || magazineSpreads[0];
+      const shareText = `Read Consumer VOICE Magazine (Nov–Dec 2026 Interactive Flipbook — ${sp.pillLabel}): NABL Lab Reports on Mustard Oils, Packaged Water & E-Commerce Rule 4(5) Notice Guide — https://consumer-voice.org/magazine`;
+      copyToClipboard(shareText, 'Flipbook link & summary copied for WhatsApp sharing!');
+    }
+
+    // Aliases for any inline handlers referencing earlier names
+    window.openFlipbook = openFlipbook;
+    window.closeFlipbook = closeFlipbook;
+    window.flipPrev = flipPrev;
+    window.flipNext = flipNext;
+    window.toggleFlipMode = toggleFlipMode;
+    window.toggleFlipZoom = toggleFlipZoom;
+    window.shareFlipbookWhatsApp = shareFlipbookWhatsApp;
+    window.openFlipbookModal = openFlipbook;
+    window.shareMagazineWhatsApp = shareFlipbookWhatsApp;
+          <button type="button" onclick="copyToClipboard('${art.title} — Consumer VOICE India: https://consumer-voice.org', 'Article link copied for WhatsApp!')" class="px-4 py-2 rounded-lg bg-labgreen text-white text-xs font-bold">
+            Share on WhatsApp
+          </button>
+          <a href="#legal-workbench" onclick="closeModal('reader-modal')" class="px-4 py-2 rounded-lg bg-ink text-white text-xs font-bold">
+            Draft Statutory Notice →
+          </a>
+        </div>
+      `;
+      document.getElementById('reader-modal').classList.remove('hidden');
+    }
+
+    // Public Broadcasts Video Theatre
+    const publicBroadcasts = [
+      {
+        tag: 'Statutory Rights Guide',
+        time: '04:25 • EN / HI',
+        title: 'Trapped in the Chatbot Loop: How to Force Human Escalation Under Indian Law',
+        desc: 'A step-by-step walkthrough of Rule 4(5) of the Consumer Protection (E-Commerce) Rules, 2020 and National Consumer Helpline (1915) escalation.',
+        en: 'Under Rule 4(5) of the Consumer Protection (E-Commerce) Rules, 2020, every e-commerce entity must publish a resident Grievance Officer’s name and direct email, issue a complaint docket within 48 hours, and resolve disputes within 30 days.',
+        hi: 'उपभोक्ता संरक्षण (ई-कॉमर्स) नियम, 2020 के नियम 4(5) के तहत, प्रत्येक प्लेटफॉर्म को शिकायत अधिकारी का विवरण प्रकाशित करना, 48 घंटे में शिकायत संख्या देना और 30 दिनों के भीतर समाधान करना अनिवार्य है।'
+      },
+      {
+        tag: 'NABL Lab Briefing',
+        time: '05:10 • EN / HI',
+        title: 'Inside Our NABL Lab: How We Test Mustard Oils, Chocolates & Protein Powders',
+        desc: 'How Consumer VOICE purchases anonymous retail samples, removes brand identifiers, and verifies purity and heavy-metal limits.',
+        en: 'All samples are purchased anonymously from retail markets, assigned blind laboratory codes, and tested in NABL ISO/IEC 17025 accredited laboratories without manufacturer involvement.',
+        hi: 'सभी नमूने खुदरा बाजार से गुमनाम रूप से खरीदे जाते हैं और बिना किसी कंपनी के हस्तक्षेप के NABL मान्यता प्राप्त प्रयोगशालाओं में परीक्षित किए जाते हैं।'
+      },
+      {
+        tag: 'Food & Label Literacy',
+        time: '03:55 • EN / HI',
+        title: '5-Minute Front-of-Pack Food Label & Trans-Fat Safety Checklist',
+        desc: 'How to read nutrition tables, spot hydrogenated vegetable fats, and verify FSSAI license numbers in under 60 seconds.',
+        en: 'Always inspect the back-of-pack nutrition table per 100g for total sugars, sodium, and trans-fats, and verify the 14-digit FSSAI license number on every packaged food item.',
+        hi: 'प्रत्येक पैकेज्ड खाद्य पदार्थ पर प्रति 100 ग्राम कुल चीनी, नमक और ट्रांस-फैट की जांच करें और 14-अंकीय FSSAI लाइसेंस नंबर अवश्य सत्यापित करें।'
+      }
+    ];
+    let broadcastPlaying = false;
+
+    function renderBroadcastPlaylist() {
+      document.getElementById('broadcast-playlist').innerHTML = publicBroadcasts.map((v, idx) => `
+        <button type="button" onclick="selectBroadcast(${idx})" class="w-full py-2.5 text-left hover:bg-parchment/70 px-2 rounded transition flex items-start justify-between gap-2">
+          <div>
+            <div class="font-mono text-[10px] font-bold text-labgreen uppercase">${v.tag}</div>
+            <div class="text-xs font-bold text-ink mt-0.5">${v.title}</div>
+          </div>
+          <span class="font-mono text-[10px] text-ink-muted shrink-0">${v.time.split('•')[0]}</span>
+        </button>
+      `).join('');
+    }
+
+    function selectBroadcast(idx) {
+      const v = publicBroadcasts[idx];
+      if (!v) return;
+      document.getElementById('broadcast-tag').textContent = v.tag;
+      document.getElementById('broadcast-time').textContent = v.time;
+      document.getElementById('broadcast-title').textContent = v.title;
+      document.getElementById('broadcast-desc').textContent = v.desc;
+      document.getElementById('transcript-en').textContent = v.en;
+      document.getElementById('transcript-hi').textContent = v.hi;
+      document.getElementById('broadcast-progress').style.width = '18%';
+      broadcastPlaying = false;
+      document.getElementById('broadcast-play-btn').textContent = '▶ Play Briefing';
+      document.getElementById('broadcast-chapter-status').textContent = 'Loaded • Press Play Briefing or open Bilingual Transcript';
+    }
+
+    function toggleBroadcastPlay() {
+      broadcastPlaying = !broadcastPlaying;
+      document.getElementById('broadcast-play-btn').textContent = broadcastPlaying ? '❚❚ Pause Briefing' : '▶ Play Briefing';
+      document.getElementById('broadcast-progress').style.width = broadcastPlaying ? '68%' : '32%';
+      document.getElementById('broadcast-chapter-status').textContent = broadcastPlaying ? 'Playing Public Record Briefing...' : 'Paused';
+    }
+
+    function jumpVideoChapter(pct, label) {
+      broadcastPlaying = true;
+      document.getElementById('broadcast-play-btn').textContent = '❚❚ Pause Briefing';
+      document.getElementById('broadcast-progress').style.width = `${pct}%`;
+      document.getElementById('broadcast-chapter-status').textContent = `Playing • ${label}`;
+    }
+
+    function toggleBroadcastTranscript() {
+      document.getElementById('broadcast-transcript-drawer').classList.toggle('hidden');
+    }
+
+    // -----------------------------------------------------------------------
+    // 4. PRE-LITIGATION STATUTORY NOTICE WORKBENCH
+    // -----------------------------------------------------------------------
+    function renderWorkbenchNotice() {
+      const type = document.getElementById('wb-grievance-type').value;
+      const company = document.getElementById('wb-company').value || '[Platform / Brand Name]';
+      const orderRef = document.getElementById('wb-order-id').value || '[Order / Transaction Ref]';
+      const amount = document.getElementById('wb-amount').value || '[Amount]';
+
+      const templates = {
+        chatbot: {
+          subject: `Statutory Grievance Notice under Rule 4(5), Consumer Protection (E-Commerce) Rules, 2020 – ${orderRef}`,
+          statute: 'Rule 4(5) and Rule 4(6) of the Consumer Protection (E-Commerce) Rules, 2020, read with the CCPA Guidelines for Prevention and Regulation of Dark Patterns, 2023',
+          relief: `issue a formal complaint tracking number within 48 hours and process a complete refund of ${amount} to my original payment source within 7 days.`
+        },
+        upi: {
+          subject: `Formal Notice: Wrong UPI / Unauthorized Electronic Debit – ${orderRef}`,
+          statute: 'Reserve Bank of India (RBI) Directions on Limiting Customer Liability in Unauthorized Electronic Banking Transactions and RBI E-Mandate Guidelines',
+          relief: `immediately reverse the unauthorized debit of ${amount}, revoke any unapproved auto-debit mandate, and restore my account balance within 10 working days.`
+        },
+        defective: {
+          subject: `Statutory Notice: Defective Product / Refund Refused (CPA 2019) – ${orderRef}`,
+          statute: 'Sections 2(10), 2(11), 2(47), and 82–87 of the Consumer Protection Act, 2019',
+          relief: `replace the defective product or refund ${amount} in full within 7 days, failing which a formal complaint will be filed before the Consumer Disputes Redressal Commission.`
+        },
+        foodlabel: {
+          subject: `Statutory Notice: Misleading Food Label / Adulterated Product (FSSAI & CPA 2019) – ${orderRef}`,
+          statute: 'Section 2(28) & Section 2(47) of the Consumer Protection Act, 2019 and the Food Safety and Standards (Labelling and Display) Regulations',
+          relief: `refund ${amount} in full within 7 days and clarify batch compliance, failing which the product sample and packaging will be escalated to FSSAI and the Central Consumer Protection Authority (CCPA).`
+        }
+      };
+
+      const cfg = templates[type] || templates.chatbot;
+      const notice = `To,\nThe Designated Grievance Officer,\n${company}\n\nSubject: ${cfg.subject}\n\nDear Grievance Officer,\n\nI am writing to place on formal statutory record my complaint regarding ${orderRef} involving a disputed value of ${amount}. Despite prior attempts through your automated support interface, no effective human resolution or complaint docket has been provided.\n\nThis conduct constitutes a Deficiency in Service and an Unfair Trade Practice under ${cfg.statute}. Timestamped screenshots, invoice copies, and payment records have been preserved.\n\nYou are hereby called upon to ${cfg.relief}\n\nKindly acknowledge receipt within 48 hours with a formal docket number, failing which I shall escalate this matter to the National Consumer Helpline (1915), Consumer VOICE (Registered VCO under Sec. 2(5) CPA 2019), and the Consumer Disputes Redressal Commission via e-Daakhil.\n\nYours sincerely,\n[Your Full Name]\n[Registered Mobile Number & Email]`;
+
+      document.getElementById('wb-notice-output').value = notice;
+      document.getElementById('wb-email-btn').href = `mailto:?subject=${encodeURIComponent(cfg.subject)}&body=${encodeURIComponent(notice)}`;
+    }
+
+    function copyWorkbenchNotice() {
+      copyToClipboard(document.getElementById('wb-notice-output').value, 'Statutory notice copied to clipboard!');
+    }
+
+    // -----------------------------------------------------------------------
+    // 5. FOOD SAFETY, PUBLIC HEALTH & GRASSROOTS CAMPAIGNS MATRIX
+    // -----------------------------------------------------------------------
+    const flagshipCampaigns = [
+      {
+        num: '01',
+        name: 'Front-of-Pack Nutrition Labelling (FOPL)',
+        authority: 'FSSAI • Ministry of Health & Family Welfare',
+        impactTag: 'High Sugar, Salt & Fat Warning Labels',
+        summary: 'Advocating clear, interpretive front-of-pack warning symbols on pre-packaged foods high in added sugars, sodium, and saturated fats so consumers of all literacy levels can make healthy dietary choices at a glance.',
+        actionTaken: 'Submitted empirical nutrition audits of packaged snacks, beverages, and chocolates to FSSAI and organized multi-state public health roundtables.'
+      },
+      {
+        num: '02',
+        name: 'Trans-Fat Elimination & Pure Cooking Oil Drive',
+        authority: 'FSSAI • Consumers International • State Food Commissioners',
+        impactTag: 'Industrial Trans-Fat Cap ≤ 2%',
+        summary: 'Working alongside public health coalitions and NABL laboratories to eliminate industrial trans-fatty acids from vanaspati, bakery shortenings, and edible oils, curbing cardiovascular disease across India.',
+        actionTaken: 'Published comparative NABL trans-fat audits of 15+ mustard and blended cooking oils and trained street-food vendors on safe oil reuse.'
+      },
+      {
+        num: '03',
+        name: 'National Road Safety & Mandatory ISI Helmet Campaign',
+        authority: 'Ministry of Road Transport & Highways (MoRTH) • BIS',
+        impactTag: 'IS 4151 Helmet & Child Restraint Standards',
+        summary: 'Campaigning for strict enforcement against spurious non-ISI two-wheeler helmets, standardized rear-seat child restraints, and pedestrian safety across high-fatality highway corridors.',
+        actionTaken: 'Conducted field compliance audits across 14 states and submitted technical safety recommendations to BIS and parliamentary transport panels.'
+      },
+      {
+        num: '04',
+        name: 'Green Action Week & Sustainable Consumption',
+        authority: 'Consumers International • Swedish Society for Nature Conservation',
+        impactTag: '22+ States • Eco-Friendly & Chemical-Free Living',
+        summary: 'Mobilizing grassroots Voluntary Consumer Organisations (VCOs), schools, and resident welfare associations across India to promote organic kitchen gardening, plastic reduction, and energy-efficient BEE 5-star appliances.',
+        actionTaken: 'Reached over 1,000+ community clusters with bilingual workshops, seed-sharing drives, and sustainable household buyer guides.'
+      }
+    ];
+    let activeCampaignIdx = 0;
+
+    function renderCampaignsMatrix() {
+      document.getElementById('campaign-selector-list').innerHTML = flagshipCampaigns.map((c, idx) => `
+        <button
+          type="button"
+          onclick="selectCampaign(${idx})"
+          class="w-full text-left px-3.5 py-2.5 rounded-lg border transition flex items-center justify-between gap-2 ${idx === activeCampaignIdx ? 'bg-ink text-white border-ink font-bold' : 'bg-archival text-ink border-hairline hover:border-ink font-semibold'}"
+        >
+          <span class="text-xs"><span class="font-mono ${idx === activeCampaignIdx ? 'text-amber-300' : 'text-crimson'} mr-1.5">${c.num}.</span>${c.name}</span>
+          <span class="font-mono text-xs">→</span>
+        </button>
+      `).join('');
+
+      const cur = flagshipCampaigns[activeCampaignIdx];
+      document.getElementById('campaign-detail-panel').innerHTML = `
+        <div class="space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="font-mono text-xs font-bold text-crimson uppercase">Campaign ${cur.num} of 04</span>
+            <span class="font-mono text-[11px] px-2.5 py-0.5 rounded bg-paper border border-hairline text-labgreen font-bold">${cur.impactTag}</span>
+          </div>
+          <h3 class="font-serif text-xl sm:text-2xl font-extrabold text-ink">${cur.name}</h3>
+          <div class="font-mono text-xs text-ink-muted">Regulatory &amp; Institutional Partners: <strong class="text-ink">${cur.authority}</strong></div>
+          <p class="text-xs sm:text-sm text-ink leading-relaxed">${cur.summary}</p>
+          <div class="p-3.5 rounded-lg bg-paper border border-hairline font-mono text-xs text-ink-muted leading-relaxed">
+            <strong class="text-ink block mb-1">Empirical &amp; Grassroots Intervention:</strong>
+            ${cur.actionTaken}
+          </div>
+        </div>
+      `;
+    }
+
+    function selectCampaign(idx) {
+      activeCampaignIdx = idx;
+      renderCampaignsMatrix();
+    }
+
+    // -----------------------------------------------------------------------
+    // 6. HERITAGE TIMELINE (1983–2026)
+    // -----------------------------------------------------------------------
+    const heritageMilestones = [
+      {
+        year: '1983',
+        era: 'Founding at Delhi University',
+        title: 'Birth of Consumer VOICE as a Student-Faculty Public-Interest Movement',
+        desc: 'Founded at the Delhi School of Economics in 1983, Consumer VOICE pioneered independent comparative product testing and consumer rights education in India.'
+      },
+      {
+        year: '1986',
+        era: 'Statutory Consumer Rights',
+        title: 'Advocacy Shaping India’s Landmark Consumer Protection Legislation',
+        desc: 'Active civil-society mobilization contributing to the enactment of the Consumer Protection Act, 1986 and establishment of three-tier Consumer Disputes Redressal Commissions.'
+      },
+      {
+        year: '2002',
+        era: 'Scientific Lab Authority',
+        title: 'National Expansion of NABL-Accredited Comparative Product Testing',
+        desc: 'Scaled systematic blind-coded laboratory testing across edible oils, bottled water, household electrical appliances, and infant foods—earning formal VCO recognition.'
+      },
+      {
+        year: '2018',
+        era: 'Nutrition & Road Safety',
+        title: 'Trans-Fat Elimination, Front-of-Pack Labelling & ISI Helmet Campaigns',
+        desc: 'Led nationwide scientific campaigns with FSSAI, BIS, and state VCO networks on trans-fat limits, clear food warning labels, and BIS-certified two-wheeler helmets.'
+      },
+      {
+        year: '2026',
+        era: '44th Year Institutional Renewal',
+        title: 'Relaunching NABL Comparative Product Testing, Digital Flipbook & Citizen Redressal',
+        desc: 'Expanding anonymous retail NABL product dossiers, bilingual pre-litigation notice tools under CPA 2019, and interactive digital magazine access across India.'
+      }
+    ];
+    let activeHeritageIdx = 0;
+
+    function renderHeritageTimeline() {
+      const btnContainer = document.getElementById('heritage-year-buttons');
+      const detailBox = document.getElementById('heritage-detail-box');
+      if (!btnContainer || !detailBox) return;
+
+      btnContainer.innerHTML = heritageMilestones.map((m, idx) => `
+        <button
+          type="button"
+          onclick="selectHeritageYear(${idx})"
+          class="p-3 rounded-xl border text-left transition ${idx === activeHeritageIdx ? 'bg-ink text-white border-ink' : 'bg-paper text-ink border-hairline hover:border-ink'}"
+        >
+          <div class="font-mono text-lg font-extrabold ${idx === activeHeritageIdx ? 'text-amber-300' : 'text-crimson'}">${m.year}</div>
+          <div class="text-[11px] font-semibold mt-0.5 ${idx === activeHeritageIdx ? 'text-slate-200' : 'text-ink-muted'}">${m.era}</div>
+        </button>
+      `).join('');
+
+      const cur = heritageMilestones[activeHeritageIdx];
+      detailBox.innerHTML = `
+        <div class="space-y-1.5 max-w-3xl">
+          <div class="font-mono text-xs font-bold text-crimson uppercase">${cur.year} • ${cur.era}</div>
+          <h4 class="font-serif text-xl font-extrabold text-ink">${cur.title}</h4>
+          <p class="text-xs sm:text-sm text-ink-muted leading-relaxed">${cur.desc}</p>
+        </div>
+        <div class="font-mono text-xs px-3.5 py-2 rounded-lg bg-archival border border-hairline text-ink shrink-0">
+          Record: <strong>CV-ARCHIVE-${cur.year}</strong>
+        </div>
+      `;
+    }
+
+    function selectHeritageYear(idx) {
+      activeHeritageIdx = idx;
+      renderHeritageTimeline();
+    }
+
+    // -----------------------------------------------------------------------
+    // 7. SHARED UTILITIES (SUPPORT MODAL, SUBSCRIBE, CLIPBOARD, TOAST)
+    // -----------------------------------------------------------------------
+    function openSupportModal() {
+      const modal = document.getElementById('support-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function handleDispatchSubscribe(e) {
+      e.preventDefault();
+      const input = document.getElementById('dispatch-email');
+      if (input && input.value.trim()) {
+        showToast(`Subscribed ${input.value.trim()} to Consumer VOICE Public Record!`);
+        input.value = '';
+      }
+    }
+
+    function copyToClipboard(text, message) {
+      const temp = document.createElement('textarea');
+      temp.value = text;
+      temp.style.position = 'fixed';
+      temp.style.left = '-9999px';
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+      showToast(message);
+    }
+
+    function closeModal(id) {
+      if (id === 'flipbook-modal') {
+        closeFlipbook();
+        return;
+      }
+      const el = document.getElementById(id);
+      if (el) el.classList.add('hidden');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const flipModal = document.getElementById('flipbook-modal');
+      const flipOpen = flipModal && !flipModal.classList.contains('hidden');
+
+      if (e.key === 'Escape') {
+        closeFlipbook();
+        ['dossier-modal', 'reader-modal', 'support-modal'].forEach(closeModal);
+      } else if (flipOpen && e.key === 'ArrowLeft') {
+        e.preventDefault();
+        flipPrev();
+      } else if (flipOpen && e.key === 'ArrowRight') {
+        e.preventDefault();
+        flipNext();
+      }
+    });
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const box = document.getElementById('toast-notification');
+      const textEl = document.getElementById('toast-text');
+      if (!box || !textEl) return;
+      textEl.textContent = msg;
+      box.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => box.classList.add('hidden'), 3500);
+    }
+
+    // Initialize All Interactive Sections on Load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderLabLedger();
+      renderCitizenBallot();
+      renderBlogsList();
+      renderBroadcastPlaylist();
+      renderWorkbenchNotice();
+      renderCampaignsMatrix();
+      renderHeritageTimeline();
+    });
+  </script>
+</body>
+</html>

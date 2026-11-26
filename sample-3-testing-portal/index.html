@@ -1,1 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consumer VOICE India — Independent Product Testing, Consumer Mitra &amp; VOICE Magazine</title>
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              DEFAULT: '#0D254C',
+              dark: '#0A1E3F',
+              light: '#163A70'
+            },
+            coral: {
+              DEFAULT: '#E04F3E',
+              hover: '#C83F2F',
+              light: '#FFF1EF'
+            },
+            teal: {
+              DEFAULT: '#0E7490',
+              dark: '#083344',
+              light: '#ECFEFF'
+            },
+            cocoa: {
+              DEFAULT: '#2B1B12',
+              light: '#3D271B'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1E293B;
+      background-color: #FFFFFF;
+      overflow-x: hidden;
+    }
+    .hero-gradient {
+      background: radial-gradient(circle at 75% 35%, #1A4480 0%, #0D254C 55%, #081936 100%);
+    }
+    .mitra-card-gradient {
+      background: linear-gradient(135deg, #072238 0%, #0D3B56 60%, #104E6B 100%);
+    }
+    .magazine-cover-gradient {
+      background: linear-gradient(160deg, #3A2316 0%, #24140C 65%, #160B06 100%);
+    }
+    .card-lift {
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 34px -8px rgba(13, 37, 76, 0.14);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-coral/20 selection:text-navy">
+
+  <!-- ===================================================================== -->
+  <!-- 1. STICKY DEEP CIVIC NAVY NAVIGATION BAR                              -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-navy border-b border-white/10 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[72px] flex items-center justify-between gap-4">
+
+      <!-- Authentic Consumer VOICE India Emblem -->
+      <a href="#top" class="flex items-center gap-3 shrink-0 group focus:outline-none">
+        <svg class="w-10 h-10 sm:w-11 sm:h-11 shrink-0" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="30" cy="30" r="28" fill="#133366" stroke="#38BDF8" stroke-opacity="0.35" stroke-width="1.5"/>
+          <!-- Crimson Speech Arc -->
+          <path d="M39 15.5C36.2 13.5 32.8 12.4 29.2 12.4C19.5 12.4 11.6 20.3 11.6 30C11.6 34.1 13 37.8 15.4 40.8L12.5 47.2L19.4 44.6C22.3 46.5 25.6 47.6 29.2 47.6C34.5 47.6 39.2 45.3 42.4 41.7" stroke="#E04F3E" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Crisp White V-Checkmark -->
+          <path d="M20.6 28L27.5 36.4L37.2 21.5" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Cyan Broadcast Waves -->
+          <path d="M41.2 22.6C43.5 24.8 44.9 27.9 44.9 31.1C44.9 34.3 43.5 37.2 41.3 39.3" stroke="#38BDF8" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M45.8 18.7C49.2 21.9 51.1 26.3 51.1 31.1C51.1 35.9 49.2 40.2 45.9 43.3" stroke="#E04F3E" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <div class="leading-none">
+          <div class="font-display font-extrabold text-white text-base sm:text-lg tracking-tight">
+            CONSUMER <span class="text-sky-300">VOICE</span>
+          </div>
+          <div class="flex items-center gap-1.5 mt-1">
+            <span class="h-[1.5px] w-4 bg-sky-400"></span>
+            <span class="text-[10px] font-bold tracking-[0.22em] text-sky-300 uppercase">INDIA • EST. 1983</span>
+            <span class="h-[1.5px] w-4 bg-sky-400"></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Menu Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-[13.5px] font-medium text-slate-200" aria-label="Main Navigation">
+        <a href="#top" class="text-white font-semibold border-b-2 border-coral pb-1">Home</a>
+        <a href="#testing-reviews" class="hover:text-white transition">Testing &amp; Reviews</a>
+        <a href="#digital-tools" class="hover:text-white transition">Tools &amp; Resources</a>
+        <button type="button" onclick="openMitraModal()" class="hover:text-white transition">Consumer Mitra</button>
+        <a href="#voice-magazine" class="hover:text-white transition">Magazine</a>
+        <a href="#about-footer" class="hover:text-white transition">About Us</a>
+        <a href="#about-footer" class="hover:text-white transition">Contact</a>
+      </nav>
+
+      <!-- Donate CTA + Mobile Menu Toggle -->
+      <div class="flex items-center gap-2.5">
+        <button
+          type="button"
+          onclick="openDonateModal()"
+          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-coral hover:bg-coral-hover text-white text-xs sm:text-sm font-semibold shadow-sm transition"
+        >
+          <span aria-hidden="true">♥</span>
+          <span>Donate</span>
+        </button>
+
+        <button
+          type="button"
+          onclick="toggleMobileMenu()"
+          class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition"
+          aria-label="Open Navigation Menu"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-navy-dark border-t border-white/10 px-4 py-3 space-y-1.5 text-sm text-slate-200">
+      <a href="#top" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg bg-white/10 text-white font-semibold">Home</a>
+      <a href="#testing-reviews" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg hover:bg-white/10">Testing &amp; Reviews</a>
+      <a href="#digital-tools" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg hover:bg-white/10">Tools &amp; Resources</a>
+      <button type="button" onclick="toggleMobileMenu(); openMitraModal()" class="w-full text-left px-3 py-2 rounded-lg hover:bg-white/10">Consumer Mitra AI</button>
+      <a href="#voice-magazine" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg hover:bg-white/10">VOICE Magazine</a>
+      <a href="#about-footer" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg hover:bg-white/10">About Us &amp; Contact</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- =================================================================== -->
+    <!-- 2. COMPACT HERO BANNER + OVERLAPPING 5-COLUMN IMPACT STRIP          -->
+    <!-- =================================================================== -->
+    <section class="relative hero-gradient text-white pt-8 sm:pt-9 lg:pt-10 pb-14 sm:pb-15 lg:pb-16 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+
+          <!-- Left 7 Cols: Headline, Subtitle & Dual CTAs -->
+          <div class="lg:col-span-7 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-medium text-sky-200">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span>Empaneled VCO • Dept. of Consumer Affairs, Govt. of India</span>
+            </div>
+
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-[42px] leading-[1.12] tracking-tight">
+              Helping Consumers Make Informed Choices.
+            </h1>
+
+            <p class="text-sm sm:text-base text-slate-200 max-w-xl leading-relaxed">
+              Independent testing. Unbiased reviews. Transparent information. Empowering India to choose quality, safety and value.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 pt-1">
+              <a
+                href="#testing-reviews"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-coral hover:bg-coral-hover text-white text-sm font-semibold shadow-md transition"
+              >
+                <span>Explore Testing</span>
+                <span aria-hidden="true">→</span>
+              </a>
+
+              <button
+                type="button"
+                onclick="openMitraModal()"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-white/15 border border-white/30 text-white text-sm font-semibold transition"
+              >
+                <span aria-hidden="true">💬</span>
+                <span>Ask Consumer Mitra</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right 5 Cols: Sleek Compact Horizontal Illustration (215px height) -->
+          <div class="lg:col-span-5 relative flex items-center justify-center">
+            <!-- Floating Shield Badge -->
+            <div class="absolute -top-2 left-2 sm:left-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-navy-dark/90 backdrop-blur-md border border-sky-300/30 shadow-lg">
+              <div class="w-7 h-7 rounded-lg bg-sky-400/20 flex items-center justify-center text-sky-300 font-bold text-sm">✓</div>
+              <div class="leading-tight">
+                <div class="text-[11px] font-bold text-white">Trusted by Millions</div>
+                <div class="text-[10px] text-sky-200">Across India • Zero Ads</div>
+              </div>
+            </div>
+
+            <!-- Constrained 215px Horizontal Landscape Composite Illustration -->
+            <div class="w-full h-[195px] sm:h-[210px] lg:h-[215px] max-h-[220px] rounded-2xl bg-white/5 border border-white/15 p-3 flex items-center justify-center shadow-inner">
+              <svg class="w-full h-full" viewBox="0 0 460 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trusted by Millions Across India — NABL Laboratory Testing & Informed Citizens">
+                <defs>
+                  <linearGradient id="glassGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0.08"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Subtle Lab Background Grid -->
+                <rect x="10" y="10" width="440" height="190" rx="14" fill="#0B2247" fill-opacity="0.65"/>
+                <circle cx="360" cy="105" r="76" fill="#1D4ED8" fill-opacity="0.22"/>
+                <circle cx="110" cy="115" r="65" fill="#0E7490" fill-opacity="0.2"/>
+
+                <!-- Left: NABL Microscope & Test Flasks -->
+                <g transform="translate(34, 34)">
+                  <!-- Erlenmeyer Flask -->
+                  <path d="M26 24H42V44L56 76C58 80 55 85 50 85H18C13 85 10 80 12 76L26 44V24Z" fill="url(#glassGrad)" stroke="#7DD3FC" stroke-width="2"/>
+                  <path d="M16 68H52L55 76C56 79 54 83 50 83H18C14 83 12 79 13 76L16 68Z" fill="#34D399" fill-opacity="0.55"/>
+                  <!-- Beaker -->
+                  <rect x="68" y="42" width="32" height="43" rx="4" fill="url(#glassGrad)" stroke="#7DD3FC" stroke-width="2"/>
+                  <rect x="70" y="62" width="28" height="21" rx="2" fill="#F59E0B" fill-opacity="0.5"/>
+                  <!-- Microscope Silhouette -->
+                  <path d="M126 85H164M145 85V68M145 68C157 68 164 58 164 46C164 36 157 28 148 26" stroke="#E2E8F0" stroke-width="3.5" stroke-linecap="round"/>
+                  <rect x="136" y="14" width="12" height="28" rx="3" transform="rotate(-22 136 14)" fill="#38BDF8"/>
+                  <rect x="128" y="56" width="26" height="4" rx="2" fill="#94A3B8"/>
+                  <rect x="20" y="96" width="150" height="26" rx="6" fill="#133366" stroke="#38BDF8" stroke-opacity="0.3"/>
+                  <text x="95" y="113" text-anchor="middle" fill="#BAE6FD" font-family="Inter, sans-serif" font-size="10.5" font-weight="700">NABL ISO/IEC 17025 LAB</text>
+                </g>
+
+                <!-- Center: Verified Score Badge -->
+                <g transform="translate(216, 46)">
+                  <rect x="0" y="0" width="96" height="118" rx="12" fill="#FFFFFF" fill-opacity="0.96"/>
+                  <rect x="10" y="12" width="44" height="14" rx="4" fill="#DCFCE7"/>
+                  <text x="32" y="22" text-anchor="middle" fill="#15803D" font-family="Inter, sans-serif" font-size="8.5" font-weight="700">VERIFIED</text>
+                  <text x="12" y="46" fill="#0D254C" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="800">Lab Score</text>
+                  <text x="12" y="72" fill="#E04F3E" font-family="Plus Jakarta Sans, sans-serif" font-size="22" font-weight="800">94/100</text>
+                  <rect x="12" y="84" width="72" height="6" rx="3" fill="#E2E8F0"/>
+                  <rect x="12" y="84" width="64" height="6" rx="3" fill="#10B981"/>
+                  <text x="12" y="104" fill="#475569" font-family="Inter, sans-serif" font-size="9" font-weight="600">Zero Brand Bias</text>
+                </g>
+
+                <!-- Right: Diverse Indian Consumers Checking Ratings -->
+                <g transform="translate(326, 38)">
+                  <!-- Consumer 1 -->
+                  <circle cx="34" cy="34" r="16" fill="#FBBF24"/>
+                  <path d="M12 88C12 69 22 58 34 58C46 58 56 69 56 88" fill="#38BDF8"/>
+                  <!-- Consumer 2 -->
+                  <circle cx="78" cy="28" r="17" fill="#F59E0B"/>
+                  <path d="M54 88C54 67 65 55 78 55C91 55 102 67 102 88" fill="#E04F3E"/>
+                  <!-- Smartphone Card -->
+                  <rect x="44" y="64" width="24" height="36" rx="4" fill="#0F172A" stroke="#7DD3FC" stroke-width="1.5"/>
+                  <path d="M51 82L55 86L62 77" stroke="#34D399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="4" y="96" width="106" height="26" rx="6" fill="#133366" stroke="#38BDF8" stroke-opacity="0.3"/>
+                  <text x="57" y="113" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10.5" font-weight="700">2.5M+ Citizens</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Overlapping 5-Column Verified Impact Bar -->
+    <section class="relative z-20 -mt-7 sm:-mt-8 px-4 sm:px-6 lg:px-8" aria-label="Consumer VOICE Impact Metrics">
+      <div class="max-w-7xl mx-auto bg-white rounded-2xl shadow-xl border border-slate-200/90 px-4 py-5 sm:px-8 sm:py-6">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+          <!-- Stat 1 -->
+          <div class="flex items-center gap-3.5 pt-2 sm:pt-0">
+            <div class="w-11 h-11 rounded-xl bg-navy/5 text-navy flex items-center justify-center text-lg font-bold shrink-0">🏛</div>
+            <div>
+              <div class="font-display font-extrabold text-xl sm:text-2xl text-navy">44+</div>
+              <div class="text-xs font-medium text-slate-500">Years of Trust</div>
+            </div>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="flex items-center gap-3.5 pt-3 sm:pt-0 sm:pl-5">
+            <div class="w-11 h-11 rounded-xl bg-teal/10 text-teal flex items-center justify-center text-lg font-bold shrink-0">🔬</div>
+            <div>
+              <div class="font-display font-extrabold text-xl sm:text-2xl text-navy">3000+</div>
+              <div class="text-xs font-medium text-slate-500">Products Tested</div>
+            </div>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="flex items-center gap-3.5 pt-3 sm:pt-0 sm:pl-5">
+            <div class="w-11 h-11 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center text-lg font-bold shrink-0">📊</div>
+            <div>
+              <div class="font-display font-extrabold text-xl sm:text-2xl text-navy">25+</div>
+              <div class="text-xs font-medium text-slate-500">Categories Covered</div>
+            </div>
+          </div>
+
+          <!-- Stat 4 -->
+          <div class="flex items-center gap-3.5 pt-3 sm:pt-0 lg:pl-5">
+            <div class="w-11 h-11 rounded-xl bg-coral/10 text-coral flex items-center justify-center text-lg font-bold shrink-0">👥</div>
+            <div>
+              <div class="font-display font-extrabold text-xl sm:text-2xl text-navy">2.5M+</div>
+              <div class="text-xs font-medium text-slate-500">Consumers Reached</div>
+            </div>
+          </div>
+
+          <!-- Stat 5 -->
+          <div class="col-span-2 sm:col-span-1 flex items-center gap-3.5 pt-3 sm:pt-0 lg:pl-5">
+            <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-lg font-bold shrink-0">🛡</div>
+            <div>
+              <div class="font-display font-extrabold text-xl sm:text-2xl text-navy">NABL</div>
+              <div class="text-xs font-medium text-slate-500">Accredited Labs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 3. TESTED. VERIFIED. TRUSTED. — COMPARATIVE PRODUCT TESTING         -->
+    <!-- =================================================================== -->
+    <section id="testing-reviews" class="py-16 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+          <!-- Left 4 Cols: Editorial Value Proposition -->
+          <div class="lg:col-span-4 space-y-5">
+            <div class="text-xs font-bold uppercase tracking-[0.16em] text-teal">
+              TESTED. VERIFIED. TRUSTED.
+            </div>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-navy leading-[1.15]">
+              Tested. Verified. Trusted.
+            </h2>
+            <p class="text-sm sm:text-[15px] text-slate-600 leading-relaxed">
+              We test in NABL accredited laboratories following global standards – so you can trust every result. Every sample is bought anonymously from retail stores with zero corporate sponsorship.
+            </p>
+
+            <ul class="space-y-3 pt-1 text-sm font-medium text-slate-700">
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-teal text-white text-xs flex items-center justify-center shrink-0">✓</span>
+                <span>Independent &amp; unbiased testing</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-teal text-white text-xs flex items-center justify-center shrink-0">✓</span>
+                <span>NABL accredited laboratories</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-teal text-white text-xs flex items-center justify-center shrink-0">✓</span>
+                <span>Expert analysis &amp; ratings</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-teal text-white text-xs flex items-center justify-center shrink-0">✓</span>
+                <span>Consumer-first reporting</span>
+              </li>
+            </ul>
+
+            <div class="pt-2">
+              <button
+                type="button"
+                onclick="openScorecardModal('earbuds')"
+                class="inline-flex items-center gap-2 text-sm font-bold text-navy hover:text-coral transition"
+              >
+                <span>Learn more about our process</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right 8 Cols: 3 Interactive Product Lab Cards -->
+          <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+            <!-- Card 1: Wireless Earbuds -->
+            <article class="card-lift relative bg-white rounded-2xl border border-slate-200 p-5 flex flex-col justify-between shadow-sm">
+              <div>
+                <span class="inline-block px-2.5 py-1 rounded-md bg-emerald-600 text-white text-[10.5px] font-bold uppercase tracking-wider">
+                  PRODUCT REVIEWS
+                </span>
+
+                <!-- Custom Product SVG -->
+                <div class="my-5 h-32 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center">
+                  <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="20" y="34" width="60" height="44" rx="18" fill="#1E293B"/>
+                    <path d="M20 46C20 34 32 24 50 24C68 24 80 34 80 46H20Z" fill="#334155"/>
+                    <circle cx="38" cy="44" r="9" fill="#0F172A" stroke="#38BDF8" stroke-width="2"/>
+                    <circle cx="62" cy="44" r="9" fill="#0F172A" stroke="#38BDF8" stroke-width="2"/>
+                    <circle cx="50" cy="60" r="2.5" fill="#34D399"/>
+                  </svg>
+                </div>
+
+                <h3 class="font-display font-bold text-lg text-navy">Wireless Earbuds</h3>
+                <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                  Detailed lab tests. Sound, comfort, battery &amp; more across 14 leading models.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onclick="openScorecardModal('earbuds')"
+                class="mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-navy hover:text-coral transition"
+              >
+                <span>View Results</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </article>
+
+            <!-- Card 2: Air Purifiers -->
+            <article class="card-lift relative bg-white rounded-2xl border border-slate-200 p-5 flex flex-col justify-between shadow-sm">
+              <div>
+                <span class="inline-block px-2.5 py-1 rounded-md bg-coral text-white text-[10.5px] font-bold uppercase tracking-wider">
+                  BEST BUYS
+                </span>
+
+                <!-- Custom Product SVG -->
+                <div class="my-5 h-32 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center">
+                  <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="28" y="16" width="44" height="68" rx="10" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="2"/>
+                    <circle cx="50" cy="36" r="10" fill="#0D254C"/>
+                    <circle cx="50" cy="36" r="5" fill="#38BDF8"/>
+                    <line x1="36" y1="56" x2="64" y2="56" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="36" y1="63" x2="64" y2="63" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="36" y1="70" x2="64" y2="70" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+
+                <h3 class="font-display font-bold text-lg text-navy">Air Purifiers</h3>
+                <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                  Top performers for clean, healthy indoor air, CADR efficiency &amp; HEPA filter life.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onclick="openScorecardModal('purifiers')"
+                class="mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-navy hover:text-coral transition"
+              >
+                <span>View Results</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </article>
+
+            <!-- Card 3: Protein Powders (with Diagonal New Ribbon) -->
+            <article class="card-lift relative overflow-hidden bg-white rounded-2xl border border-slate-200 p-5 flex flex-col justify-between shadow-sm">
+              <!-- Diagonal New Ribbon -->
+              <div class="absolute top-3 -right-8 w-28 rotate-45 bg-sky-500 text-white text-center text-[10px] font-bold py-0.5 shadow-sm">
+                New
+              </div>
+
+              <div>
+                <span class="inline-block px-2.5 py-1 rounded-md bg-navy text-white text-[10.5px] font-bold uppercase tracking-wider">
+                  RANKINGS
+                </span>
+
+                <!-- Custom Product SVG -->
+                <div class="my-5 h-32 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center">
+                  <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="24" y="28" width="38" height="54" rx="6" fill="#1E293B"/>
+                    <rect x="27" y="20" width="32" height="8" rx="2" fill="#475569"/>
+                    <rect x="28" y="42" width="30" height="22" fill="#E04F3E"/>
+                    <path d="M64 68H86L83 82H67L64 68Z" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+                    <path d="M66 68C68 61 82 61 84 68" fill="#FDE68A"/>
+                  </svg>
+                </div>
+
+                <h3 class="font-display font-bold text-lg text-navy">Protein Powders</h3>
+                <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                  Ranked by actual protein accuracy, heavy-metal safety, purity &amp; value.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onclick="openScorecardModal('protein')"
+                class="mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-navy hover:text-coral transition"
+              >
+                <span>View Results</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 4. OUR DIGITAL TOOLS — CONSUMER MITRA AI & FOOD SCANNER             -->
+    <!-- =================================================================== -->
+    <section id="digital-tools" class="py-16 sm:py-20 bg-slate-50 border-y border-slate-200/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+
+        <div>
+          <div class="text-xs font-bold uppercase tracking-[0.16em] text-teal">
+            OUR DIGITAL TOOLS
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-navy mt-1">
+            Smart Tools. Simple Answers.
+          </h2>
+          <p class="text-sm sm:text-[15px] text-slate-600 mt-1.5">
+            AI-powered guidance and quick scans to help you decide better, every day.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
+
+          <!-- Left Dark Card: Consumer Mitra AI -->
+          <div class="card-lift mitra-card-gradient rounded-2xl p-6 sm:p-8 text-white flex flex-col sm:flex-row items-center gap-6 shadow-lg">
+            <!-- Custom AI Assistant Illustration -->
+            <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
+              <svg class="w-28 h-28" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="55" cy="55" r="46" fill="#0EA5E9" fill-opacity="0.14"/>
+                <!-- Bot Head -->
+                <rect x="31" y="28" width="48" height="36" rx="14" fill="#F8FAFC"/>
+                <rect x="37" y="35" width="36" height="20" rx="8" fill="#0F172A"/>
+                <circle cx="47" cy="45" r="3.5" fill="#38BDF8"/>
+                <circle cx="63" cy="45" r="3.5" fill="#38BDF8"/>
+                <!-- Headset -->
+                <path d="M28 45C28 30 40 20 55 20C70 20 82 30 82 45" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+                <!-- Body -->
+                <path d="M35 88C35 74 44 68 55 68C66 68 75 74 75 88" fill="#E2E8F0"/>
+                <!-- Chat Bubbles -->
+                <rect x="12" y="24" width="16" height="11" rx="3" fill="#38BDF8"/>
+                <rect x="82" y="54" width="16" height="11" rx="3" fill="#E04F3E"/>
+              </svg>
+            </div>
+
+            <div class="space-y-3 text-center sm:text-left">
+              <h3 class="font-display font-extrabold text-2xl text-white">Consumer Mitra</h3>
+              <div class="text-xs font-bold uppercase tracking-wider text-sky-300">
+                Your AI Consumer Assistant
+              </div>
+              <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                Ask questions, get instant guidance on products, statutory refund rights, warranties &amp; grievance notices.
+              </p>
+              <div class="pt-1">
+                <button
+                  type="button"
+                  onclick="openMitraModal()"
+                  class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-coral hover:bg-coral-hover text-white text-xs sm:text-sm font-semibold shadow transition"
+                >
+                  <span>Chat with Consumer Mitra</span>
+                  <span aria-hidden="true">→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Light Card: Food Scanner -->
+          <div class="card-lift bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 shadow-sm">
+            <!-- Smartphone Food Scan SVG -->
+            <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 relative">
+              <svg class="w-28 h-28" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="32" y="12" width="46" height="86" rx="9" fill="#0F172A"/>
+                <rect x="36" y="18" width="38" height="74" rx="6" fill="#FFFFFF"/>
+                <rect x="41" y="24" width="28" height="6" rx="2" fill="#DCFCE7"/>
+                <rect x="41" y="34" width="28" height="24" rx="4" fill="#FEF3C7"/>
+                <circle cx="55" cy="46" r="7" fill="#F59E0B"/>
+                <rect x="41" y="64" width="28" height="4" rx="2" fill="#CBD5E1"/>
+                <rect x="41" y="72" width="20" height="4" rx="2" fill="#CBD5E1"/>
+                <!-- Green Verified Check Badge -->
+                <circle cx="78" cy="78" r="12" fill="#16A34A"/>
+                <path d="M73 78L76.5 81.5L83.5 74.5" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="space-y-3 text-center sm:text-left">
+              <h3 class="font-display font-extrabold text-2xl text-navy">Food Scanner</h3>
+              <div class="text-xs font-bold uppercase tracking-wider text-teal">
+                Scan. Know. Choose.
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Scan or search any packaged food product to check nutrition, additives, trans-fats, safety &amp; lab ratings.
+              </p>
+              <div class="pt-1">
+                <button
+                  type="button"
+                  onclick="openScannerModal()"
+                  class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-coral hover:bg-coral-hover text-white text-xs sm:text-sm font-semibold shadow transition"
+                >
+                  <span>Try Food Scanner</span>
+                  <span aria-hidden="true">→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 5. VOICE MAGAZINE — STAY INFORMED. STAY EMPOWERED.                  -->
+    <!-- =================================================================== -->
+    <section id="voice-magazine" class="py-16 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+          <!-- Left 5 Cols: Tactile Dark-Cocoa VOICE Magazine Cover Card -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div
+              onclick="openFlipbookModal(0)"
+              role="button"
+              tabindex="0"
+              onkeydown="if(event.key==='Enter'||event.key===' ')openFlipbookModal(0)"
+              aria-label="Open VOICE Magazine Interactive Flipbook"
+              class="card-lift cursor-pointer magazine-cover-gradient w-full max-w-[340px] rounded-2xl p-6 sm:p-7 text-white shadow-2xl border border-amber-900/40 select-none"
+            >
+              <div class="border-b border-white/15 pb-3">
+                <div class="font-serif font-black text-4xl sm:text-5xl tracking-tight text-white leading-none">
+                  VOICE
+                </div>
+                <div class="flex items-center justify-between mt-1.5 text-[10px] font-bold tracking-[0.2em] text-amber-300 uppercase">
+                  <span>MAR – APR 2026</span>
+                  <span>MAGAZINE</span>
+                </div>
+              </div>
+
+              <div class="pt-5 space-y-2.5">
+                <h3 class="font-display font-extrabold text-2xl sm:text-[26px] leading-tight text-amber-100">
+                  THE CHOCOLATE TRUTH
+                </h3>
+                <p class="text-xs text-amber-200/90 leading-relaxed">
+                  What we found in 15 popular brands. Lab Test Results, Rankings &amp; Insights.
+                </p>
+              </div>
+
+              <!-- Stylised Chocolate Bar Artwork -->
+              <div class="my-5 p-4 rounded-xl bg-black/30 border border-amber-800/30 flex items-center justify-between gap-3">
+                <div class="text-[11px] text-amber-100/90 space-y-1">
+                  <div class="font-bold text-white">Health, Safety &amp;</div>
+                  <div>What You Should Know</div>
+                  <div class="inline-block mt-1 px-2 py-0.5 rounded bg-coral text-white text-[10px] font-bold">
+                    Click to Flip Pages ↗
+                  </div>
+                </div>
+                <svg class="w-20 h-20 shrink-0" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="14" y="10" width="52" height="60" rx="6" transform="rotate(-8 14 10)" fill="#5C341E" stroke="#8C5332" stroke-width="2"/>
+                  <rect x="20" y="16" width="16" height="14" rx="2" transform="rotate(-8 20 16)" fill="#452413"/>
+                  <rect x="40" y="13" width="16" height="14" rx="2" transform="rotate(-8 40 13)" fill="#452413"/>
+                  <rect x="23" y="34" width="16" height="14" rx="2" transform="rotate(-8 23 34)" fill="#452413"/>
+                  <rect x="43" y="31" width="16" height="14" rx="2" transform="rotate(-8 43 31)" fill="#452413"/>
+                  <rect x="26" y="52" width="16" height="12" rx="2" transform="rotate(-8 26 52)" fill="#452413"/>
+                  <rect x="46" y="49" width="16" height="12" rx="2" transform="rotate(-8 46 49)" fill="#452413"/>
+                </svg>
+              </div>
+
+              <div class="pt-2 border-t border-white/10 flex items-center justify-between text-[10px] text-amber-200/75">
+                <span>100% AD-FREE PUBLICATION</span>
+                <span>ISSN 0971-7641</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right 7 Cols: Magazine Editorial Details & CTAs -->
+          <div class="lg:col-span-7 space-y-5">
+            <div class="text-xs font-bold uppercase tracking-[0.16em] text-teal">
+              VOICE MAGAZINE
+            </div>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-navy leading-[1.15]">
+              Stay Informed.<br />Stay Empowered.
+            </h2>
+            <p class="text-sm sm:text-[15px] text-slate-600 leading-relaxed max-w-xl">
+              In-depth reports, lab test insights and expert advice to help you make smarter choices—published bi-monthly with zero commercial advertisements.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="w-9 h-9 rounded-full bg-teal/15 text-teal flex items-center justify-center font-bold text-sm shrink-0">📊</span>
+                <span class="text-sm font-semibold text-navy">Independent investigations</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="w-9 h-9 rounded-full bg-sky-100 text-navy flex items-center justify-center font-bold text-sm shrink-0">⚖️</span>
+                <span class="text-sm font-semibold text-navy">Expert analysis &amp; advice</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm shrink-0">🧪</span>
+                <span class="text-sm font-semibold text-navy">Lab-tested findings</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="w-9 h-9 rounded-full bg-coral/15 text-coral flex items-center justify-center font-bold text-sm shrink-0">🛡</span>
+                <span class="text-sm font-semibold text-navy">Consumer-focused stories</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <button
+                type="button"
+                onclick="openSubscribeModal()"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-coral hover:bg-coral-hover text-white text-sm font-semibold shadow transition"
+              >
+                <span>Subscribe Now</span>
+                <span aria-hidden="true">→</span>
+              </button>
+
+              <button
+                type="button"
+                onclick="openFlipbookModal(0)"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white hover:bg-slate-50 border border-slate-300 text-navy text-sm font-semibold transition"
+              >
+                <span>Open Interactive Flipbook</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- 6. 5-COLUMN DEEP CIVIC NAVY FOOTER                                    -->
+  <!-- ===================================================================== -->
+  <footer id="about-footer" class="bg-navy-dark text-slate-300 pt-14 pb-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-white/10">
+
+        <!-- Col 1 (4 Cols): Brand Emblem, Mission & Socials -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-3">
+            <svg class="w-10 h-10 shrink-0" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="30" cy="30" r="28" fill="#133366" stroke="#38BDF8" stroke-opacity="0.35" stroke-width="1.5"/>
+              <path d="M39 15.5C36.2 13.5 32.8 12.4 29.2 12.4C19.5 12.4 11.6 20.3 11.6 30C11.6 34.1 13 37.8 15.4 40.8L12.5 47.2L19.4 44.6C22.3 46.5 25.6 47.6 29.2 47.6C34.5 47.6 39.2 45.3 42.4 41.7" stroke="#E04F3E" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20.6 28L27.5 36.4L37.2 21.5" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M41.2 22.6C43.5 24.8 44.9 27.9 44.9 31.1C44.9 34.3 43.5 37.2 41.3 39.3" stroke="#38BDF8" stroke-width="2.6" stroke-linecap="round"/>
+            </svg>
+            <div class="leading-none">
+              <div class="font-display font-extrabold text-white text-base tracking-tight">CONSUMER VOICE</div>
+              <div class="text-[10px] font-bold tracking-[0.2em] text-sky-300 uppercase mt-1">INDIA</div>
+            </div>
+          </div>
+
+          <p class="text-xs text-slate-300 leading-relaxed">
+            An independent, not-for-profit consumer organization working for a safer, fairer and more informed India since 1983.
+          </p>
+
+          <div class="flex items-center gap-2.5 pt-1">
+            <a href="https://www.facebook.com/ConsumerVoiceIndia/" target="_blank" rel="noopener" aria-label="Facebook" class="w-8 h-8 rounded-full bg-white/10 hover:bg-coral text-white flex items-center justify-center text-xs font-bold transition">f</a>
+            <a href="https://www.instagram.com/consumervoice/" target="_blank" rel="noopener" aria-label="Instagram" class="w-8 h-8 rounded-full bg-white/10 hover:bg-coral text-white flex items-center justify-center text-xs font-bold transition">in</a>
+            <a href="https://x.com/ConsumerVoiceIn" target="_blank" rel="noopener" aria-label="X Twitter" class="w-8 h-8 rounded-full bg-white/10 hover:bg-coral text-white flex items-center justify-center text-xs font-bold transition">𝕏</a>
+            <a href="https://www.youtube.com/VOICEConsumer" target="_blank" rel="noopener" aria-label="YouTube" class="w-8 h-8 rounded-full bg-white/10 hover:bg-coral text-white flex items-center justify-center text-xs font-bold transition">▶</a>
+          </div>
+        </div>
+
+        <!-- Col 2 (2 Cols): Quick Links -->
+        <div class="lg:col-span-2 space-y-2.5">
+          <h3 class="font-display font-bold text-sm text-white">Quick Links</h3>
+          <ul class="space-y-1.5 text-xs">
+            <li><a href="#top" class="hover:text-white transition">About Us</a></li>
+            <li><a href="#testing-reviews" class="hover:text-white transition">Testing Process</a></li>
+            <li><a href="#testing-reviews" class="hover:text-white transition">NABL Accreditation</a></li>
+            <li><a href="#about-footer" class="hover:text-white transition">Careers</a></li>
+            <li><a href="#about-footer" class="hover:text-white transition">Contact Us</a></li>
+            <li><a href="#top" class="hover:text-white transition">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 (2 Cols): Resources -->
+        <div class="lg:col-span-2 space-y-2.5">
+          <h3 class="font-display font-bold text-sm text-white">Resources</h3>
+          <ul class="space-y-1.5 text-xs">
+            <li><a href="#testing-reviews" class="hover:text-white transition">Product Reviews</a></li>
+            <li><a href="#testing-reviews" class="hover:text-white transition">Best Buys</a></li>
+            <li><a href="#testing-reviews" class="hover:text-white transition">Rankings</a></li>
+            <li><a href="#voice-magazine" class="hover:text-white transition">Articles &amp; Guides</a></li>
+            <li><button type="button" onclick="openMitraModal()" class="hover:text-white transition">FAQs &amp; Consumer Mitra</button></li>
+          </ul>
+        </div>
+
+        <!-- Col 4 (1.5 -> 2 Cols): Legal -->
+        <div class="lg:col-span-2 space-y-2.5">
+          <h3 class="font-display font-bold text-sm text-white">Legal</h3>
+          <ul class="space-y-1.5 text-xs">
+            <li><a href="#about-footer" class="hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="#about-footer" class="hover:text-white transition">Terms of Use</a></li>
+            <li><a href="#about-footer" class="hover:text-white transition">Disclaimer</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5 (2 Cols): Stay Updated Newsletter -->
+        <div class="lg:col-span-2 space-y-2.5">
+          <h3 class="font-display font-bold text-sm text-white">Stay Updated</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Get the latest reviews, alerts and consumer tips straight to your inbox.
+          </p>
+          <form onsubmit="handleNewsletterSubmit(event)" class="space-y-2">
+            <input
+              type="email"
+              id="footer-email"
+              required
+              placeholder="Enter your email address"
+              aria-label="Enter your email address"
+              class="w-full px-3 py-2 rounded-lg bg-white text-slate-900 text-xs focus:outline-none"
+            />
+            <button
+              type="submit"
+              class="w-full py-2 rounded-lg bg-coral hover:bg-coral-hover text-white text-xs font-semibold transition"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400">
+        <span>© 2026 Consumer Voice India. All rights reserved.</span>
+        <span class="flex items-center gap-1.5">
+          <span>Designed for trust. Built for consumers.</span>
+          <span class="text-sky-400">🛡</span>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- INTERACTIVE MODALS (LAB SCORECARDS, MITRA AI, SCANNER, FLIPBOOK)      -->
+  <!-- ===================================================================== -->
+
+  <!-- MODAL 1: NABL LAB SCORECARD MODAL -->
+  <div id="scorecard-modal" onclick="if(event.target===this) closeModal('scorecard-modal')" class="hidden fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="sc-modal-title">
+    <div class="bg-white rounded-2xl border border-slate-200 w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="px-6 py-4 bg-navy text-white flex items-center justify-between">
+        <div>
+          <span id="sc-modal-badge" class="text-[10.5px] font-bold uppercase tracking-wider text-sky-300">NABL ACCREDITED TEST REPORT</span>
+          <h3 id="sc-modal-title" class="font-display font-bold text-lg sm:text-xl">Comparative Lab Results</h3>
+        </div>
+        <button type="button" onclick="closeModal('scorecard-modal')" class="p-2 rounded-lg text-white/80 hover:bg-white/10 hover:text-white" aria-label="Close">✕</button>
+      </div>
+      <div id="sc-modal-body" class="p-6 overflow-y-auto space-y-4"></div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: CONSUMER MITRA AI CHAT ASSISTANT -->
+  <div id="mitra-modal" onclick="if(event.target===this) closeModal('mitra-modal')" class="hidden fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="mitra-title">
+    <div class="bg-white rounded-2xl border border-slate-200 w-full max-w-xl max-h-[88vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="px-6 py-4 mitra-card-gradient text-white flex items-center justify-between">
+        <div>
+          <span class="text-[10.5px] font-bold uppercase tracking-wider text-sky-300">CONSUMER VOICE AI DESK</span>
+          <h3 id="mitra-title" class="font-display font-bold text-lg">Consumer Mitra — Rights &amp; Grievance Assistant</h3>
+        </div>
+        <button type="button" onclick="closeModal('mitra-modal')" class="p-2 rounded-lg text-white/80 hover:bg-white/10 hover:text-white" aria-label="Close">✕</button>
+      </div>
+
+      <div id="mitra-chat-log" class="p-5 overflow-y-auto space-y-3 flex-1 bg-slate-50 text-xs sm:text-sm min-h-[240px]">
+        <div class="p-3.5 rounded-xl bg-white border border-slate-200 text-slate-700 leading-relaxed shadow-xs">
+          <strong>Namaste! I am Consumer Mitra.</strong> Ask me about refund refusals, defective products, chatbot support loops, or filing complaints on NCH (1915) and e-Daakhil.
+        </div>
+      </div>
+
+      <!-- Quick Prompt Chips -->
+      <div class="px-5 py-2.5 bg-white border-t border-slate-100 flex flex-wrap gap-1.5">
+        <button type="button" onclick="askMitraPreset('refund')" class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 hover:bg-navy hover:text-white text-navy transition">E-commerce refund refused</button>
+        <button type="button" onclick="askMitraPreset('upi')" class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 hover:bg-navy hover:text-white text-navy transition">Wrong UPI / bank debit</button>
+        <button type="button" onclick="askMitraPreset('edaakhil')" class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 hover:bg-navy hover:text-white text-navy transition">How to file on e-Daakhil?</button>
+      </div>
+
+      <form onsubmit="handleMitraQuery(event)" class="p-4 bg-white border-t border-slate-200 flex gap-2">
+        <input id="mitra-input" type="text" required placeholder="Type your consumer rights question..." class="flex-1 px-3.5 py-2 rounded-lg border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-navy" />
+        <button type="submit" class="px-4 py-2 rounded-lg bg-coral hover:bg-coral-hover text-white text-xs sm:text-sm font-semibold transition">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 3: PACKAGED FOOD SCANNER -->
+  <div id="scanner-modal" onclick="if(event.target===this) closeModal('scanner-modal')" class="hidden fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="scanner-title">
+    <div class="bg-white rounded-2xl border border-slate-200 w-full max-w-xl max-h-[88vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="px-6 py-4 bg-teal-dark text-white flex items-center justify-between">
+        <div>
+          <span class="text-[10.5px] font-bold uppercase tracking-wider text-teal-200">NUTRITION &amp; ADDITIVE AUDIT TOOL</span>
+          <h3 id="scanner-title" class="font-display font-bold text-lg">Consumer VOICE Food Scanner</h3>
+        </div>
+        <button type="button" onclick="closeModal('scanner-modal')" class="p-2 rounded-lg text-white/80 hover:bg-white/10 hover:text-white" aria-label="Close">✕</button>
+      </div>
+
+      <div class="p-6 overflow-y-auto space-y-4">
+        <p class="text-xs sm:text-sm text-slate-600">Select a packaged food item below to inspect its NABL lab nutrition profile, sugar/sodium load, and additive alerts:</p>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" onclick="renderFoodScan('darkchoc')" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-navy hover:text-white text-xs font-semibold text-navy transition">Amul 75% Dark Chocolate</button>
+          <button type="button" onclick="renderFoodScan('noodles')" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-navy hover:text-white text-xs font-semibold text-navy transition">Instant Masala Noodles</button>
+          <button type="button" onclick="renderFoodScan('chips')" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-navy hover:text-white text-xs font-semibold text-navy transition">Salted Potato Wafers</button>
+        </div>
+        <div id="food-scan-result" class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 4: INTERACTIVE VOICE MAGAZINE 4-SPREAD FLIPBOOK -->
+  <div id="flipbook-modal" onclick="if(event.target===this) closeModal('flipbook-modal')" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="flip-title">
+    <div class="bg-white rounded-2xl border border-slate-200 w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="px-6 py-4 magazine-cover-gradient text-white flex items-center justify-between">
+        <div>
+          <span id="flip-spread-meta" class="text-[10.5px] font-bold uppercase tracking-wider text-amber-300">VOICE MAGAZINE • SPREAD 1 OF 4</span>
+          <h3 id="flip-title" class="font-display font-bold text-lg sm:text-xl">The Chocolate Truth — Interactive Edition</h3>
+        </div>
+        <button type="button" onclick="closeModal('flipbook-modal')" class="p-2 rounded-lg text-white/80 hover:bg-white/10 hover:text-white" aria-label="Close">✕</button>
+      </div>
+      <div id="flip-body" class="p-6 overflow-y-auto space-y-5"></div>
+    </div>
+  </div>
+
+  <!-- MODAL 5: SUBSCRIBE & DONATE MODAL -->
+  <div id="action-modal" onclick="if(event.target===this) closeModal('action-modal')" class="hidden fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="action-modal-title">
+    <div class="bg-white rounded-2xl border border-slate-200 w-full max-w-md overflow-hidden shadow-2xl">
+      <div class="px-6 py-4 bg-coral text-white flex items-center justify-between">
+        <h3 id="action-modal-title" class="font-display font-bold text-lg">Subscribe to VOICE Magazine</h3>
+        <button type="button" onclick="closeModal('action-modal')" class="p-2 rounded-lg text-white/85 hover:bg-white/15" aria-label="Close">✕</button>
+      </div>
+      <div id="action-modal-body" class="p-6 space-y-4"></div>
+    </div>
+  </div>
+
+  <!-- TOAST MESSAGE -->
+  <div id="toast" class="hidden fixed bottom-5 right-5 z-50 bg-navy text-white px-4 py-3 rounded-xl shadow-xl border border-white/15 text-xs font-medium flex items-center gap-2">
+    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+    <span id="toast-msg">Done</span>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT INTERACTIVITY                                              -->
+  <!-- ===================================================================== -->
+  <script>
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    // 1. NABL Product Scorecards Data
+    const labScorecards = {
+      earbuds: {
+        badge: 'PRODUCT REVIEWS • 14 MODELS TESTED',
+        title: 'Wireless Earbuds (TWS) — NABL Acoustic & Battery Lab Test',
+        summary: 'Tested in NABL-accredited acoustic chambers for frequency response accuracy, active noise cancellation (ANC), microphone call clarity, IPX sweat resistance, and continuous playback duration.',
+        items: [
+          { rank: 1, name: 'Sony WF-C700N', score: '91/100', tag: 'Best Buy', note: 'Balanced acoustic profile, effective ANC & 7.8 hrs single-charge playback.' },
+          { rank: 2, name: 'OnePlus Buds 3', score: '88/100', tag: 'Recommended', note: 'Strong dual-driver clarity, fast charging & clear outdoor call mic.' },
+          { rank: 3, name: 'Budget TWS Model #11', score: '54/100', tag: 'Caution', note: 'Actual battery fell 42% short of box claim; high harmonic distortion.' }
+        ]
+      },
+      purifiers: {
+        badge: 'BEST BUYS • 10 HEPA H13 MODELS TESTED',
+        title: 'HEPA H13 Air Purifiers — Chamber PM2.5 Clearance Test',
+        summary: 'Evaluated for Clean Air Delivery Rate (CADR), 15-minute PM2.5 particulate drop, sleep-mode noise levels (dB), standby wattage, and 2-year replacement filter cost.',
+        items: [
+          { rank: 1, name: 'Philips Smart Air Purifier AC1715', score: '93/100', tag: 'Best Buy', note: '99.6% PM2.5 reduction in 15 minutes; lowest annual filter replacement cost.' },
+          { rank: 2, name: 'Coway AirMega 150', score: '90/100', tag: 'Best Buy', note: 'True HEPA H13 filter life up to 8,500 hours & ultra-quiet 40 dB sleep mode.' },
+          { rank: 3, name: 'Xiaomi Smart Air Purifier 4 Lite', score: '84/100', tag: 'Value Pick', note: 'High CADR for medium rooms; slightly higher filter replacement cost.' }
+        ]
+      },
+      protein: {
+        badge: 'NEW RANKINGS • 18 BRANDS LAB TESTED',
+        title: 'Whey & Plant Protein Powders — Purity & Heavy-Metal Audit',
+        summary: 'Blind-coded retail jars tested for actual protein percentage vs. label claim, amino acid spiking, aflatoxins, and trace heavy metals (lead, arsenic, cadmium, mercury).',
+        items: [
+          { rank: 1, name: 'MuscleBlaze Biozyme Performance Whey', score: '90/100', tag: 'Best Buy', note: 'Verified 76.2% protein content (within 2% of label) & nil heavy metals.' },
+          { rank: 2, name: 'Optimum Nutrition (ON) Gold Standard', score: '89/100', tag: 'Recommended', note: 'Clean microbiological & heavy-metal profile; authentic amino spectrum.' },
+          { rank: 3, name: 'Unverified Online Brand #15', score: '41/100', tag: 'Flagged', note: 'Delivered only 43% protein against 75% label claim; failed purity audit.' }
+        ]
+      }
+    };
+
+    function openScorecardModal(key) {
+      const data = labScorecards[key] || labScorecards.earbuds;
+      document.getElementById('sc-modal-badge').textContent = data.badge;
+      document.getElementById('sc-modal-title').textContent = data.title;
+      document.getElementById('sc-modal-body').innerHTML = `
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${data.summary}</p>
+        <div class="space-y-3">
+          ${data.items.map(it => `
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 rounded bg-navy text-white text-[11px] font-bold">#${it.rank}</span>
+                  <span class="font-display font-bold text-sm sm:text-base text-navy">${it.name}</span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10.5px] font-bold">${it.tag}</span>
+                </div>
+                <p class="text-xs text-slate-600 mt-1">${it.note}</p>
+              </div>
+              <div class="font-display font-extrabold text-lg text-coral shrink-0">${it.score}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      document.getElementById('scorecard-modal').classList.remove('hidden');
+    }
+
+    // 2. Consumer Mitra AI Assistant
+    const mitraResponses = {
+      refund: 'Under Rule 4(5) of the Consumer Protection (E-Commerce) Rules, 2020, every platform must appoint a resident Grievance Officer, acknowledge your complaint with a tracking docket within 48 hours, and resolve it within 30 days. Send a formal email to the Grievance Officer and escalate to National Consumer Helpline (1915) if unresolved.',
+      upi: 'Under RBI’s Customer Liability Directions, immediately report unauthorized electronic/UPI debits to your bank within 3 working days for zero customer liability. If unresolved after 30 days, file a free complaint on the RBI Complaint Management System (cms.rbi.org.in).',
+      edaakhil: 'You can file a consumer complaint online from home at edaakhil.nic.in without hiring a lawyer. There is zero court fee for claims up to ₹5 lakh. Attach your invoice, screenshots, and written notice to the company.'
+    };
+
+    function openMitraModal() {
+      document.getElementById('mitra-modal').classList.remove('hidden');
+    }
+
+    function askMitraPreset(key) {
+      const labels = {
+        refund: 'What if an e-commerce app refuses my refund?',
+        upi: 'How do I recover a wrong UPI or unauthorized debit?',
+        edaakhil: 'How can I file a case on e-Daakhil?'
+      };
+      appendMitraBubble(labels[key], true);
+      appendMitraBubble(mitraResponses[key], false);
+    }
+
+    function handleMitraQuery(e) {
+      e.preventDefault();
+      const input = document.getElementById('mitra-input');
+      const q = input.value.trim();
+      if (!q) return;
+      appendMitraBubble(q, true);
+      input.value = '';
+      const lower = q.toLowerCase();
+      let reply = mitraResponses.refund;
+      if (lower.includes('upi') || lower.includes('bank') || lower.includes('debit')) reply = mitraResponses.upi;
+      else if (lower.includes('court') || lower.includes('daakhil') || lower.includes('case')) reply = mitraResponses.edaakhil;
+      appendMitraBubble(reply, false);
+    }
+
+    function appendMitraBubble(text, isUser) {
+      const log = document.getElementById('mitra-chat-log');
+      const div = document.createElement('div');
+      div.className = isUser
+        ? 'ml-auto max-w-[82%] p-3 rounded-xl bg-navy text-white leading-relaxed'
+        : 'mr-auto max-w-[88%] p-3.5 rounded-xl bg-white border border-slate-200 text-slate-700 leading-relaxed shadow-xs';
+      div.textContent = text;
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    // 3. Packaged Food Scanner
+    const foodScanDb = {
+      darkchoc: {
+        name: 'Amul 75% Bitter Dark Chocolate (100g)',
+        rating: 'A • Best Buy (90/100)',
+        badgeClass: 'bg-emerald-100 text-emerald-800',
+        stats: 'Cocoa Solids: 75.4% | Added Sugar: 22g/100g | Trans-Fat: 0.0g | Veg Fat Replacers: None',
+        verdict: 'Authentic cocoa butter formulation with high cocoa solids and zero hydrogenated vegetable fat substitution.'
+      },
+      noodles: {
+        name: 'Instant Masala Noodles (Per 100g Dry)',
+        rating: 'C • Moderate / High Sodium',
+        badgeClass: 'bg-amber-100 text-amber-800',
+        stats: 'Sodium: 1,120 mg/100g | Refined Flour (Maida): 68% | Lead/Heavy Metals: Within FSSAI Limits',
+        verdict: 'Passes FSSAI heavy-metal safety limits, but a single pack supplies over 45% of daily recommended sodium intake.'
+      },
+      chips: {
+        name: 'Classic Salted Potato Wafers (Per 100g)',
+        rating: 'D • High Fat & Sodium Alert',
+        badgeClass: 'bg-rose-100 text-rose-800',
+        stats: 'Total Fat: 34.5g/100g | Saturated Fat: 15.2g/100g | Sodium: 690 mg/100g',
+        verdict: 'High calorie density and saturated fat from palmolein frying. Consume occasionally in controlled portions.'
+      }
+    };
+
+    function openScannerModal() {
+      renderFoodScan('darkchoc');
+      document.getElementById('scanner-modal').classList.remove('hidden');
+    }
+
+    function renderFoodScan(key) {
+      const item = foodScanDb[key] || foodScanDb.darkchoc;
+      document.getElementById('food-scan-result').innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h4 class="font-display font-bold text-base text-navy">${item.name}</h4>
+          <span class="px-2.5 py-1 rounded-md text-xs font-bold ${item.badgeClass}">${item.rating}</span>
+        </div>
+        <div class="text-xs font-semibold text-teal bg-white p-2.5 rounded-lg border border-slate-200">${item.stats}</div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${item.verdict}</p>
+      `;
+    }
+
+    // 4. Interactive 4-Spread VOICE Magazine Flipbook
+    const flipSpreads = [
+      {
+        title: 'Cover & Editorial: The Chocolate Truth',
+        leftTag: 'Mar–Apr 2026 • Cover Story',
+        leftTitle: 'What We Found in 15 Popular Chocolate Brands',
+        leftText: 'Consumer VOICE purchased 15 dark and milk chocolate bars anonymously from retail stores and tested them in NABL-accredited laboratories for real cocoa solids, cocoa butter purity, sugar load, and trace heavy metals.',
+        rightTag: 'Inside This Issue',
+        rightBullets: [
+          'Page 04: Cocoa Butter vs. Hydrogenated Vegetable Fat Replacers.',
+          'Page 10: Complete 15-Brand Lab Scorecard & Sugar Comparison.',
+          'Page 18: Heavy Metal Safety Audit (Lead & Cadmium Limits).',
+          'Page 24: How to Read FSSAI Front-of-Pack Nutrition Labels.'
+        ]
+      },
+      {
+        title: 'Lab Findings: Top Ranked Dark Chocolates',
+        leftTag: 'NABL Lab Dossier • Page 04',
+        leftTitle: 'Pure Cocoa Butter vs. Compound Chocolate',
+        leftText: 'Under FSSAI standards, genuine chocolate must derive its fat primarily from cocoa butter. Several budget bars rely on cheaper hydrogenated vegetable oils while displaying cocoa imagery on the front wrapper.',
+        rightTag: 'Verified Winners',
+        rightBullets: [
+          'Amul 75% Bitter Dark Chocolate (90/100) — Best Buy for highest verified cocoa solids.',
+          'Lindt Excellence 70% Cocoa (88/100) — Pure cocoa butter & clean heavy-metal profile.',
+          'Always check the ingredient list: cocoa solids and cocoa butter should appear before sugar.'
+        ]
+      },
+      {
+        title: 'Nutrition & Sugar Alert: Milk Chocolates',
+        leftTag: 'Health & Nutrition • Page 10',
+        leftTitle: 'Over 52% Added Sugar in Popular Milk Bars',
+        leftText: 'Laboratory analysis showed that 9 out of 15 tested bars contained between 48g and 57g of total sugar per 100g—meaning more than half the bar is refined sugar.',
+        rightTag: 'Smart Buyer Checklist',
+        rightBullets: [
+          'Choose bars with at least 55%–70% cocoa solids to reduce sugar intake.',
+          'Verify the 14-digit FSSAI license number printed on the back wrapper.',
+          'Store chocolates below 22°C to prevent fat bloom and rancidity.'
+        ]
+      },
+      {
+        title: 'Your Consumer Rights & Subscription',
+        leftTag: 'Citizen Action • Page 24',
+        leftTitle: 'Report Misleading Food Labels to FSSAI & CCPA',
+        leftText: 'If a packaged food product makes false nutrition claims or omits mandatory FSSAI declarations, preserve the wrapper and receipt to file a complaint.',
+        rightTag: 'Share & Subscribe',
+        rightBullets: [
+          'Share this interactive flipbook issue with family & WhatsApp groups.',
+          'Subscribe to receive bi-monthly print & digital editions of VOICE Magazine.',
+          'Need help? Contact Consumer VOICE at info@consumer-voice.org.'
+        ]
+      }
+    ];
+    let currentFlipSpread = 0;
+
+    function openFlipbookModal(idx = 0) {
+      currentFlipSpread = idx;
+      renderFlipSpread();
+      document.getElementById('flipbook-modal').classList.remove('hidden');
+    }
+
+    function renderFlipSpread() {
+      const sp = flipSpreads[currentFlipSpread];
+      document.getElementById('flip-spread-meta').textContent = `VOICE MAGAZINE • SPREAD ${currentFlipSpread + 1} OF ${flipSpreads.length}`;
+      document.getElementById('flip-title').textContent = sp.title;
+      document.getElementById('flip-body').innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 rounded-xl border border-slate-200 overflow-hidden shadow-md">
+          <div class="p-6 bg-amber-50/60 border-b md:border-b-0 md:border-r border-slate-200 space-y-2.5">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-coral">${sp.leftTag}</span>
+            <h4 class="font-display font-bold text-lg text-navy">${sp.leftTitle}</h4>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${sp.leftText}</p>
+          </div>
+          <div class="p-6 bg-white space-y-2.5">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-teal">${sp.rightTag}</span>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-700 list-disc pl-4 leading-relaxed">
+              ${sp.rightBullets.map(b => `<li>${b}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+          <button
+            type="button"
+            onclick="if(currentFlipSpread>0){currentFlipSpread--;renderFlipSpread();}"
+            ${currentFlipSpread === 0 ? 'disabled' : ''}
+            class="px-4 py-2 rounded-lg border border-slate-300 text-xs font-bold text-navy disabled:opacity-40"
+          >
+            ← Previous Page
+          </button>
+
+          <div class="flex items-center gap-1.5">
+            ${flipSpreads.map((_, i) => `
+              <button type="button" onclick="openFlipbookModal(${i})" aria-label="Go to spread ${i + 1}" class="w-2.5 h-2.5 rounded-full ${i === currentFlipSpread ? 'bg-coral' : 'bg-slate-300'}"></button>
+            `).join('')}
+          </div>
+
+          <button
+            type="button"
+            onclick="if(currentFlipSpread<flipSpreads.length-1){currentFlipSpread++;renderFlipSpread();}"
+            ${currentFlipSpread === flipSpreads.length - 1 ? 'disabled' : ''}
+            class="px-4 py-2 rounded-lg bg-navy text-white text-xs font-bold disabled:opacity-40"
+          >
+            Next Page →
+          </button>
+        </div>
+      `;
+    }
+
+    // 5. Subscribe & Donate Modals
+    function openSubscribeModal() {
+      document.getElementById('action-modal-title').textContent = 'Subscribe to VOICE Magazine';
+      document.getElementById('action-modal-body').innerHTML = `
+        <p class="text-xs sm:text-sm text-slate-600">Receive 6 bi-monthly issues of VOICE Magazine (Digital Flipbook + Print) with zero advertisements.</p>
+        <form onsubmit="event.preventDefault(); closeModal('action-modal'); showToast('Subscription request submitted! Check your email.');" class="space-y-3">
+          <input type="text" required placeholder="Full Name" class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm" />
+          <input type="email" required placeholder="Email Address" class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm" />
+          <select class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm">
+            <option>1 Year Digital Flipbook Access — ₹350</option>
+            <option>1 Year Print + Digital Combo — ₹600</option>
+            <option>3 Years Print + Digital Combo — ₹1,500</option>
+          </select>
+          <button type="submit" class="w-full py-2.5 rounded-lg bg-navy hover:bg-navy-light text-white text-sm font-semibold">Proceed to Subscribe →</button>
+        </form>
+      `;
+      document.getElementById('action-modal').classList.remove('hidden');
+    }
+
+    function openDonateModal() {
+      document.getElementById('action-modal-title').textContent = 'Support Independent Consumer Testing';
+      document.getElementById('action-modal-body').innerHTML = `
+        <p class="text-xs sm:text-sm text-slate-600">Consumer VOICE accepts zero corporate ads. Your contribution funds anonymous retail product sampling and NABL lab testing (80G tax-exempt).</p>
+        <form onsubmit="event.preventDefault(); closeModal('action-modal'); showToast('Thank you for supporting Consumer VOICE!');" class="space-y-3">
+          <input type="number" min="100" value="1000" required class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm font-bold" />
+          <input type="text" required placeholder="Donor Full Name (for 80G Receipt)" class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm" />
+          <button type="submit" class="w-full py-2.5 rounded-lg bg-coral hover:bg-coral-hover text-white text-sm font-semibold">Donate Now ♥</button>
+        </form>
+      `;
+      document.getElementById('action-modal').classList.remove('hidden');
+    }
+
+    function handleNewsletterSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('footer-email');
+      if (input && input.value.trim()) {
+        showToast(`Subscribed ${input.value.trim()} to Consumer VOICE alerts!`);
+        input.value = '';
+      }
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        ['scorecard-modal', 'mitra-modal', 'scanner-modal', 'flipbook-modal', 'action-modal'].forEach(closeModal);
+      }
+    });
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const el = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      el.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.add('hidden'), 3200);
+    }
+  </script>
+</body>
+</html>
